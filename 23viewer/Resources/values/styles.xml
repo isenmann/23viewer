@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<resources>
+  <style name="twentyThreeviewer.Base" parent="Theme.AppCompat.Light">
+  </style>
+
+    <style name="twentyThreeviewerTheme" parent="twentyThreeviewer.Base">
+  </style>
+
+  <style name="twentyThreeviewer.Splash" parent ="Theme.AppCompat.Light">
+    <item name="android:windowBackground">@drawable/splash_screen</item>
+    <item name="android:windowNoTitle">true</item>  
+  </style>
+</resources>
