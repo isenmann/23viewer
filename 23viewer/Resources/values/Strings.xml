@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
 	
-	<string name="app_name">23 viewer</string>
+	<string name="app_name">23</string>
+  <string name="authorize_text">In order to use this app, you have to authorize it against your 23 account. In the next step you will be forwarded to the 23 webpage. Please login and click on the authorize button there. After that come back to this app.</string>
+  <string name="auth_warning">Please authorize this app, otherwise you can\'t use it.</string>
 </resources>

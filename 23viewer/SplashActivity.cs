@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V7.App;
 using System.Threading.Tasks;
+using TwentyThreeNet;
 
 namespace viewer
 {
@@ -21,22 +22,13 @@ namespace viewer
 		public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)
 		{
 			base.OnCreate(savedInstanceState, persistentState);
-
 		}
 
 		protected override void OnResume()
 		{
 			base.OnResume();
 
-			Task startupWork = new Task(() => {
-				Task.Delay(20000);  // Simulate a bit of startup work.
-			});
-
-			startupWork.ContinueWith(t => {
-				StartActivity(new Intent(Application.Context, typeof(MainActivity)));	
-			}, TaskScheduler.FromCurrentSynchronizationContext());
-
-			startupWork.Start();
+			StartActivity(new Intent(Application.Context, typeof(LoginActivity)));	
 		}
 	}
 }
