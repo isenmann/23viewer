@@ -4,11 +4,32 @@
   <style name="twentyThreeviewer.Base" parent="Theme.AppCompat.Light">
   </style>
 
-    <style name="twentyThreeviewerTheme" parent="twentyThreeviewer.Base">
+  <style name="ToolbarTheme" parent="twentyThreeviewer.Base">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    <item name="colorPrimary">#5C9B4A</item>
   </style>
 
-  <style name="twentyThreeviewer.Splash" parent ="Theme.AppCompat.Light">
+  <style name="twentyThreeviewerTheme" parent="twentyThreeviewer.Base">
+  </style>
+
+  <style name="twentyThreeviewer.Splash" parent ="twentyThreeviewer.Base">
     <item name="android:windowBackground">@drawable/splash_screen</item>
-    <item name="android:windowNoTitle">true</item>  
+    <item name="android:windowNoTitle">true</item>
+  </style>
+
+  <color name="theme_devicedefault_background">#fffdfdfd</color>
+  <style name="Theme.Custom" parent="@android:style/Theme.DeviceDefault">
+    <item name="android:colorBackground">@color/theme_devicedefault_background</item>
+    <item name="android:windowBackground">?android:attr/colorBackground</item>
+  </style>
+
+  <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+    <item name="tabTextAppearance">@style/MyCustomTextAppearance</item>
+    <item name="tabIndicatorColor">#7CD164</item>
+  </style>
+
+  <style name="MyCustomTextAppearance" parent="TextAppearance.Design.Tab">
+    <item name="textAllCaps">false</item>
   </style>
 </resources>
