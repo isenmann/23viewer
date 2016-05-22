@@ -952,29 +952,29 @@ namespace viewer
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0c0045
-			public const int abc_background_cache_hint_selector_material_dark = 2131492933;
-			
 			// aapt resource value: 0x7f0c0046
-			public const int abc_background_cache_hint_selector_material_light = 2131492934;
+			public const int abc_background_cache_hint_selector_material_dark = 2131492934;
+			
+			// aapt resource value: 0x7f0c0047
+			public const int abc_background_cache_hint_selector_material_light = 2131492935;
 			
 			// aapt resource value: 0x7f0c0000
 			public const int abc_input_method_navigation_guard = 2131492864;
 			
-			// aapt resource value: 0x7f0c0047
-			public const int abc_primary_text_disable_only_material_dark = 2131492935;
-			
 			// aapt resource value: 0x7f0c0048
-			public const int abc_primary_text_disable_only_material_light = 2131492936;
+			public const int abc_primary_text_disable_only_material_dark = 2131492936;
 			
 			// aapt resource value: 0x7f0c0049
-			public const int abc_primary_text_material_dark = 2131492937;
+			public const int abc_primary_text_disable_only_material_light = 2131492937;
 			
 			// aapt resource value: 0x7f0c004a
-			public const int abc_primary_text_material_light = 2131492938;
+			public const int abc_primary_text_material_dark = 2131492938;
 			
 			// aapt resource value: 0x7f0c004b
-			public const int abc_search_url_text = 2131492939;
+			public const int abc_primary_text_material_light = 2131492939;
+			
+			// aapt resource value: 0x7f0c004c
+			public const int abc_search_url_text = 2131492940;
 			
 			// aapt resource value: 0x7f0c0001
 			public const int abc_search_url_text_normal = 2131492865;
@@ -985,11 +985,11 @@ namespace viewer
 			// aapt resource value: 0x7f0c0003
 			public const int abc_search_url_text_selected = 2131492867;
 			
-			// aapt resource value: 0x7f0c004c
-			public const int abc_secondary_text_material_dark = 2131492940;
-			
 			// aapt resource value: 0x7f0c004d
-			public const int abc_secondary_text_material_light = 2131492941;
+			public const int abc_secondary_text_material_dark = 2131492941;
+			
+			// aapt resource value: 0x7f0c004e
+			public const int abc_secondary_text_material_light = 2131492942;
 			
 			// aapt resource value: 0x7f0c0004
 			public const int accent_material_dark = 2131492868;
@@ -1171,17 +1171,20 @@ namespace viewer
 			// aapt resource value: 0x7f0c0043
 			public const int splash_background = 2131492931;
 			
+			// aapt resource value: 0x7f0c0044
+			public const int statusBarColor = 2131492932;
+			
 			// aapt resource value: 0x7f0c0036
 			public const int switch_thumb_disabled_material_dark = 2131492918;
 			
 			// aapt resource value: 0x7f0c0037
 			public const int switch_thumb_disabled_material_light = 2131492919;
 			
-			// aapt resource value: 0x7f0c004e
-			public const int switch_thumb_material_dark = 2131492942;
-			
 			// aapt resource value: 0x7f0c004f
-			public const int switch_thumb_material_light = 2131492943;
+			public const int switch_thumb_material_dark = 2131492943;
+			
+			// aapt resource value: 0x7f0c0050
+			public const int switch_thumb_material_light = 2131492944;
 			
 			// aapt resource value: 0x7f0c0038
 			public const int switch_thumb_normal_material_dark = 2131492920;
@@ -1189,8 +1192,8 @@ namespace viewer
 			// aapt resource value: 0x7f0c0039
 			public const int switch_thumb_normal_material_light = 2131492921;
 			
-			// aapt resource value: 0x7f0c0044
-			public const int theme_devicedefault_background = 2131492932;
+			// aapt resource value: 0x7f0c0045
+			public const int theme_devicedefault_background = 2131492933;
 			
 			static Color()
 			{
@@ -1743,14 +1746,23 @@ namespace viewer
 			// aapt resource value: 0x7f020046
 			public const int design_snackbar_background = 2130837574;
 			
-			// aapt resource value: 0x7f020049
-			public const int notification_template_icon_bg = 2130837577;
-			
 			// aapt resource value: 0x7f020047
-			public const int splash_logo = 2130837575;
+			public const int face = 2130837575;
 			
 			// aapt resource value: 0x7f020048
-			public const int splash_screen = 2130837576;
+			public const int home = 2130837576;
+			
+			// aapt resource value: 0x7f02004c
+			public const int notification_template_icon_bg = 2130837580;
+			
+			// aapt resource value: 0x7f020049
+			public const int search = 2130837577;
+			
+			// aapt resource value: 0x7f02004a
+			public const int splash_logo = 2130837578;
+			
+			// aapt resource value: 0x7f02004b
+			public const int splash_screen = 2130837579;
 			
 			static Drawable()
 			{
@@ -2372,16 +2384,25 @@ namespace viewer
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int ic_face_white_48dp = 2130903040;
+			public const int ic_face_black_48dp = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int ic_home_white_48dp = 2130903041;
+			public const int ic_face_white_48dp = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int ic_search_white_48dp = 2130903042;
+			public const int ic_home_black_48dp = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int Icon = 2130903043;
+			public const int ic_home_white_48dp = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int ic_search_black_48dp = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int ic_search_white_48dp = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int Icon = 2130903046;
 			
 			static Mipmap()
 			{

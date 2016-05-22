@@ -11,6 +11,7 @@ using Android.Support.V4.View;
 using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Android.Runtime;
+using Android.Util;
 
 namespace viewer
 {
@@ -23,6 +24,8 @@ namespace viewer
         protected override void OnCreate (Bundle savedInstanceState)
 		{
             base.OnCreate(savedInstanceState);
+
+            Window.SetStatusBarColor(new Android.Graphics.Color(124, 209, 100));
 
             SetContentView(Resource.Layout.Main);
 
@@ -41,13 +44,13 @@ namespace viewer
             tabLayout.SetupWithViewPager(viewPager);
 
             TabLayout.Tab tabCall = tabLayout.GetTabAt(0);
-            tabCall.SetIcon(Resource.Mipmap.ic_home_white_48dp);
+            tabCall.SetIcon(Resource.Drawable.home);
 
             tabCall = tabLayout.GetTabAt(1);
-            tabCall.SetIcon(Resource.Mipmap.ic_search_white_48dp);
+            tabCall.SetIcon(Resource.Drawable.search);
 
             tabCall = tabLayout.GetTabAt(2);
-            tabCall.SetIcon(Resource.Mipmap.ic_face_white_48dp);
+            tabCall.SetIcon(Resource.Drawable.face);
         }
         
         /*
