@@ -10,7 +10,7 @@ I have nothing to do with the company behind 23 and I'm not an employee of them.
 
 ## Screenshots
 
-These two screenshots just show the work in progress. The navigation with its three swipable tabs are ready, the card with the image is the first shot to display an image from 23. This card will be look much better in the future with a lot more information and also lots of more cards should be displayed. Expect changes to these anytime, I will update the screenshots as soon as I have new functionality implemented. 
+These two screenshots just show the work in progress. The navigation with its three swipable tabs are ready, the card with the image is just a first shot to display an image from 23 and its title. This card will be look much better in the future with a lot more information and of course also lots of more cards should be displayed from your stream, contacts, etc. This was only a first shot to display some data. Expect changes to these anytime, I will update the screenshots as soon as I have new functionality implemented. 
 
 <img src="https://raw.githubusercontent.com/isenmann/23viewer/master/Splashscreen.png" width="240">
 <img src="https://raw.githubusercontent.com/isenmann/23viewer/master/FirstDraft.png" width="240">
