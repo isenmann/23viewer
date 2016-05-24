@@ -14,3 +14,7 @@ These two screenshots just show the work in progress. The navigation with its th
 
 <img src="https://raw.githubusercontent.com/isenmann/23viewer/master/Splashscreen.png" width="240">
 <img src="https://raw.githubusercontent.com/isenmann/23viewer/master/FirstDraft.png" width="240">
+
+A few words to the navigation at the top. The tab with the home icon should display all new photos from your contacts and will become an endless scrolling list. The tab with the search icon will have two tasks, the first one will be to search 23 (at least what is possible) and second task will be to show the last recent uploads or "Interesting photos" of 23. The last tab will be your profile, with your photos and albums, your buddy icon, your contacts displayed with buddy icons, etc. 
+
+If these features are implemented, I will start to implement the upload feature. This will include uploading photos from your smartphone directly to 23, no matter if they are in the gallery or directly from your smartphone camera.
