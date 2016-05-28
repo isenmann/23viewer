@@ -12,12 +12,11 @@ For connecting the app to 23, I use my own 23 API DLL (heavily based on flickrne
 
 ## Screenshots
 
-These two screenshots just show the work in progress. The navigation with its three swipable tabs are ready, the card with the image is just a first shot to display an image from 23 and its title. This card will be look much better in the future with a lot more information and of course also lots of more cards should be displayed from your stream, contacts, etc. This was only a first shot to display some data. Expect changes to these anytime, I will update the screenshots as soon as I have new functionality implemented. 
+This short gif animation shows the current state of the app. The navigation with its three swipable tabs are ready, the cards with the images and titles are downloaded on demand while scrolling through the list. This card will be look much better in the future with a lot more information, this is only the first step right now. The displayed photos are the photos of your contacts, sorted by date.
 
-<img src="https://raw.githubusercontent.com/isenmann/23viewer/master/Splashscreen.png" width="240">
-<img src="https://raw.githubusercontent.com/isenmann/23viewer/master/FirstDraft.png" width="240">
+<img src="https://raw.githubusercontent.com/isenmann/23viewer/master/StreamAnimation.gif" width="240">
 
-A few words to the navigation at the top. The tab with the home icon should display all new photos from your contacts and will become an endless scrolling list. Of course, you can tap on an image to see it in fullscreen, see also the comments and counts of favourites, etc. Also the exif data will be available, if the image has one. The tab with the search icon will have two tasks, the first one will be to search 23 (at least what is possible) and second task will be to show the last recent uploads or "Interesting photos" of 23. The last tab will be your profile, with your photos and albums, your buddy icon, your contacts displayed with buddy icons, etc. 
+A few words to the navigation at the top. The tab with the home icon should display all new photos from your contacts and is an endless scrolling list as you can see in the gif animation. Of course, you can tap on an image to see it in fullscreen, see also the comments and counts of favourites, etc. Also the exif data will be available, if the image has one. The tab with the search icon will have two tasks, the first one will be to search 23 (at least what is possible) and second task will be to show the last recent uploads or "Interesting photos" of 23. The last tab will be your profile, with your photos and albums, your buddy icon, your contacts displayed with buddy icons, etc. 
 
 If these features are implemented, I will start to implement the upload feature. This will include uploading photos from your smartphone directly to 23, no matter if they are in the gallery or directly from your smartphone camera.
 
