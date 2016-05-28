@@ -43,6 +43,14 @@
     <Reference Include="23Net">
       <HintPath>lib\23Net.dll</HintPath>
     </Reference>
+    <Reference Include="FFImageLoading, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.1.0\lib\MonoAndroid10\FFImageLoading.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FFImageLoading.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.1.0\lib\MonoAndroid10\FFImageLoading.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -59,6 +67,10 @@
       <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat.23.1.1.1\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.CardView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.CardView.23.1.1.1\lib\MonoAndroid403\Xamarin.Android.Support.v7.CardView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Xamarin.Android.Support.v7.RecyclerView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.23.1.1.1\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
       <Private>True</Private>
@@ -72,7 +84,10 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SplashActivity.cs" />
+    <Compile Include="StreamCardContent.cs" />
+    <Compile Include="StreamCardContentAdapter.cs" />
     <Compile Include="StreamFragment.cs" />
+    <Compile Include="StreamViewHolder.cs" />
     <Compile Include="TabsFragmentPagerAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -86,12 +101,15 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Stream.axml">
-      <SubType>AndroidResource</SubType>
+      <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Explore.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Profile.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\StreamCardView.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -124,6 +142,14 @@
     <XamarinComponentReference Include="xamandroidsupportv4-18">
       <Version>23.0.1.3</Version>
       <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="xamandroidsupportv7cardview">
+      <Visible>False</Visible>
+      <Version>23.1.1.1</Version>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="xamandroidsupportv7recyclerview">
+      <Visible>False</Visible>
+      <Version>23.1.1.1</Version>
     </XamarinComponentReference>
   </ItemGroup>
   <ItemGroup>
