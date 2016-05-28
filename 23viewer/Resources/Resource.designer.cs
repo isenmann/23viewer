@@ -1891,6 +1891,9 @@ namespace viewer
 			// aapt resource value: 0x7f07002a
 			public const int bottom = 2131165226;
 			
+			// aapt resource value: 0x7f070084
+			public const int buddyImageView = 2131165316;
+			
 			// aapt resource value: 0x7f070072
 			public const int buttonAuthorize = 2131165298;
 			
@@ -2191,9 +2194,6 @@ namespace viewer
 			// aapt resource value: 0x7f07004d
 			public const int textSpacerNoButtons = 2131165261;
 			
-			// aapt resource value: 0x7f070084
-			public const int textView = 2131165316;
-			
 			// aapt resource value: 0x7f07007b
 			public const int time = 2131165307;
 			
@@ -2217,6 +2217,9 @@ namespace viewer
 			
 			// aapt resource value: 0x7f070014
 			public const int useLogo = 2131165204;
+			
+			// aapt resource value: 0x7f070085
+			public const int username = 2131165317;
 			
 			// aapt resource value: 0x7f07000a
 			public const int view_offset_helper = 2131165194;

@@ -23,15 +23,45 @@
                 android:layout_height="220dp"
                 android:id="@+id/imageView"
                 android:scaleType="fitCenter" />
-            <TextView
+            <RelativeLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="#333333"
-                android:text="Caption"
-                android:id="@+id/textView"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="1dp" />
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginRight="1dp">
+                <ImageView
+                    android:id="@+id/buddyImageView"
+                    android:scaleType="fitCenter"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_alignParentLeft="true" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/buddyImageView"
+                    android:layout_alignTop="@+id/buddyImageView"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#333333"
+                    android:text="Caption"
+                    android:textStyle="bold"
+                    android:id="@+id/title"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="1dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/buddyImageView"
+                    android:layout_alignBottom="@+id/buddyImageView"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#333333"
+                    android:text="Caption"
+                    android:textStyle="italic"
+                    android:id="@+id/username"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="1dp" />
+            </RelativeLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </FrameLayout>

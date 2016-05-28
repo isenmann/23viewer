@@ -15,9 +15,15 @@ using TwentyThreeNet;
 
 namespace viewer
 {
+    public class PhotoInformation
+    {
+        public Photo photo;
+        public Contact Owner;
+    }
+
     public class StreamCardContent
     {
-        private List<Photo> photos = new List<Photo>();
+        private List<PhotoInformation> photos = new List<PhotoInformation>();
 
         public StreamCardContent()
         {
@@ -25,17 +31,21 @@ namespace viewer
             ContactCollection contacts = MainActivity.twentyThree.ContactsGetList();
 
             PhotoCollection collection = new PhotoCollection();
+            PhotoSearchExtras searchOptions = PhotoSearchExtras.DateUploaded;
 
-            foreach (var item in contacts)
+            foreach (var contact in contacts)
             {
-                PhotoCollection userCollection = MainActivity.twentyThree.PeopleGetPublicPhotos(item.UserId, 1, 10, SafetyLevel.None, PhotoSearchExtras.DateUploaded);
+                PhotoCollection userCollection = MainActivity.twentyThree.PeopleGetPublicPhotos(contact.UserId, 1, 10, SafetyLevel.None, searchOptions);
+               
                 foreach (var photo in userCollection)
                 {
-                    photos.Add(photo);
+                    PhotoInformation info = new PhotoInformation() { photo = photo, Owner = contact };
+
+                    photos.Add(info);
                 }
             }
 
-            photos.Sort((a, b) => b.DateUploaded.CompareTo(a.DateUploaded));
+            photos.Sort((a, b) => b.photo.DateUploaded.CompareTo(a.photo.DateUploaded));
         }
 
         public int NumPhotos
@@ -43,7 +53,7 @@ namespace viewer
             get { return photos.Count; }
         }
 
-        public Photo this[int i]
+        public PhotoInformation this[int i]
         {
             get { return photos[i]; }
         }
