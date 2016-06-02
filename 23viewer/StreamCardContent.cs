@@ -19,6 +19,9 @@ namespace viewer
     {
         public Photo photo;
         public Contact Owner;
+        public bool IsFavourite;
+        public int NumberOfFavourites;
+        public int NumberOfComments;
     }
 
     public class StreamCardContent
@@ -29,18 +32,32 @@ namespace viewer
         {
             // Must be done asynchronously in the next step
             ContactCollection contacts = MainActivity.twentyThree.ContactsGetList();
+            PhotoCollection favourites = MainActivity.twentyThree.FavoritesGetList();
 
             PhotoCollection collection = new PhotoCollection();
-            PhotoSearchExtras searchOptions = PhotoSearchExtras.DateUploaded;
+            PhotoSearchExtras searchOptions = PhotoSearchExtras.All;
 
             foreach (var contact in contacts)
             {
-                PhotoCollection userCollection = MainActivity.twentyThree.PeopleGetPublicPhotos(contact.UserId, 1, 10, SafetyLevel.None, searchOptions);
-               
-                foreach (var photo in userCollection)
-                {
-                    PhotoInformation info = new PhotoInformation() { photo = photo, Owner = contact };
+                PhotoCollection photoCollection = MainActivity.twentyThree.PeopleGetPublicPhotos(contact.UserId, 1, 5, SafetyLevel.None, searchOptions);
 
+                foreach (var photo in photoCollection)
+                {
+                    bool favourite = false;
+
+                    foreach (var item in favourites)
+                    {
+                        if(item.PhotoId == photo.PhotoId)
+                        {
+                            favourite = true;
+                            break;
+                        }
+                    }
+                    
+                    int numberOfComments = MainActivity.twentyThree.PhotosCommentsGetList(photo.PhotoId).Count;
+                    int numberOfFavourites = MainActivity.twentyThree.PhotosGetFavorites(photo.PhotoId).Count;
+                    
+                    PhotoInformation info = new PhotoInformation() { photo = photo, Owner = contact, IsFavourite = favourite, NumberOfFavourites = numberOfFavourites, NumberOfComments = numberOfComments };
                     photos.Add(info);
                 }
             }

@@ -1927,6 +1927,9 @@ namespace viewer
 			// aapt resource value: 0x7f07001e
 			public const int collapseActionView = 2131165214;
 			
+			// aapt resource value: 0x7f070087
+			public const int commentImageView = 2131165319;
+			
 			// aapt resource value: 0x7f07004a
 			public const int contentPanel = 2131165258;
 			
@@ -1980,6 +1983,9 @@ namespace viewer
 			
 			// aapt resource value: 0x7f070051
 			public const int expanded_menu = 2131165265;
+			
+			// aapt resource value: 0x7f070089
+			public const int favouritedImageView = 2131165321;
 			
 			// aapt resource value: 0x7f070035
 			public const int fill = 2131165237;
@@ -2058,6 +2064,12 @@ namespace viewer
 			
 			// aapt resource value: 0x7f07000c
 			public const int normal = 2131165196;
+			
+			// aapt resource value: 0x7f070088
+			public const int numberComments = 2131165320;
+			
+			// aapt resource value: 0x7f07008a
+			public const int numberFav = 2131165322;
 			
 			// aapt resource value: 0x7f070028
 			public const int parallax = 2131165224;
@@ -2214,6 +2226,9 @@ namespace viewer
 			
 			// aapt resource value: 0x7f070009
 			public const int up = 2131165193;
+			
+			// aapt resource value: 0x7f070086
+			public const int uploaded = 2131165318;
 			
 			// aapt resource value: 0x7f070014
 			public const int useLogo = 2131165204;
@@ -2453,25 +2468,34 @@ namespace viewer
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int ic_face_black_48dp = 2130903040;
+			public const int ic_comment_black_48dp = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int ic_face_white_48dp = 2130903041;
+			public const int ic_face_black_48dp = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int ic_home_black_48dp = 2130903042;
+			public const int ic_face_white_48dp = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int ic_home_white_48dp = 2130903043;
+			public const int ic_home_black_48dp = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int ic_search_black_48dp = 2130903044;
+			public const int ic_home_white_48dp = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int ic_search_white_48dp = 2130903045;
+			public const int ic_search_black_48dp = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int Icon = 2130903046;
+			public const int ic_search_white_48dp = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int ic_star_black_48dp = 2130903047;
+			
+			// aapt resource value: 0x7f030008
+			public const int ic_star_border_black_48dp = 2130903048;
+			
+			// aapt resource value: 0x7f030009
+			public const int Icon = 2130903049;
 			
 			static Mipmap()
 			{
@@ -2557,6 +2581,24 @@ namespace viewer
 			
 			// aapt resource value: 0x7f0a0015
 			public const int character_counter_pattern = 2131361813;
+			
+			// aapt resource value: 0x7f0a0019
+			public const int day_ago = 2131361817;
+			
+			// aapt resource value: 0x7f0a001a
+			public const int days_ago = 2131361818;
+			
+			// aapt resource value: 0x7f0a001b
+			public const int hour_ago = 2131361819;
+			
+			// aapt resource value: 0x7f0a001c
+			public const int hours_ago = 2131361820;
+			
+			// aapt resource value: 0x7f0a001d
+			public const int minute_ago = 2131361821;
+			
+			// aapt resource value: 0x7f0a001e
+			public const int minutes_ago = 2131361822;
 			
 			// aapt resource value: 0x7f0a0013
 			public const int status_bar_notification_info_overflow = 2131361811;

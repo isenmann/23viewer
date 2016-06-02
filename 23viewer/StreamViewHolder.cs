@@ -20,6 +20,11 @@ namespace viewer
         public ImageViewAsync BuddyIcon { get; private set; }
         public TextView Caption { get; private set; }
         public TextView User { get; private set; }
+        public TextView Date { get; private set; }
+        public ImageViewAsync MarkedAsFavourite { get; private set; }
+        public TextView NumberOfFavourites { get; private set; }
+        public ImageViewAsync Comment { get; private set; }
+        public TextView NumberOfComments { get; private set; }
 
         public StreamViewHolder(View itemView, Action<int> listener) : base(itemView)
         {
@@ -28,6 +33,11 @@ namespace viewer
             BuddyIcon = itemView.FindViewById<ImageViewAsync>(Resource.Id.buddyImageView);
             Caption = itemView.FindViewById<TextView>(Resource.Id.title);
             User = itemView.FindViewById<TextView>(Resource.Id.username);
+            Date = itemView.FindViewById<TextView>(Resource.Id.uploaded);
+            MarkedAsFavourite = itemView.FindViewById<ImageViewAsync>(Resource.Id.favouritedImageView);
+            NumberOfFavourites = itemView.FindViewById<TextView>(Resource.Id.numberFav);
+            Comment = itemView.FindViewById<ImageViewAsync>(Resource.Id.commentImageView);
+            NumberOfComments = itemView.FindViewById<TextView>(Resource.Id.numberComments);
 
             itemView.Click += (sender, e) => listener(this.AdapterPosition);
         }
