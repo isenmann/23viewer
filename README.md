@@ -20,6 +20,13 @@ A few words to the navigation at the top. The tab with the home icon should disp
 
 If these features are implemented, I will start to implement the upload feature. This will include uploading photos from your smartphone directly to 23, no matter if they are in the gallery or directly from your smartphone camera.
 
+## Update (June 2nd, 2016)
+
+The next three small design steps and features are ready. You can now see when the photo was uploaded and you can see the number of comments and number of favourites besides the icons. If the star is filled with green then you have marked this image as favourite otherwise not. 
+
+<img src="https://raw.githubusercontent.com/isenmann/23viewer/master/LatestScreenshot.png" width="240">
+<img src="https://raw.githubusercontent.com/isenmann/23viewer/master/LatestScreenshot_2.png" width="240">
+
 ## Donations
 
 If you want to support me, you can donate at: https://www.paypal.me/danielisenmann
