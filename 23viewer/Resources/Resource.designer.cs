@@ -985,29 +985,29 @@ namespace viewer
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f08004a
-			public const int abc_background_cache_hint_selector_material_dark = 2131230794;
-			
 			// aapt resource value: 0x7f08004b
-			public const int abc_background_cache_hint_selector_material_light = 2131230795;
+			public const int abc_background_cache_hint_selector_material_dark = 2131230795;
+			
+			// aapt resource value: 0x7f08004c
+			public const int abc_background_cache_hint_selector_material_light = 2131230796;
 			
 			// aapt resource value: 0x7f080004
 			public const int abc_input_method_navigation_guard = 2131230724;
 			
-			// aapt resource value: 0x7f08004c
-			public const int abc_primary_text_disable_only_material_dark = 2131230796;
-			
 			// aapt resource value: 0x7f08004d
-			public const int abc_primary_text_disable_only_material_light = 2131230797;
+			public const int abc_primary_text_disable_only_material_dark = 2131230797;
 			
 			// aapt resource value: 0x7f08004e
-			public const int abc_primary_text_material_dark = 2131230798;
+			public const int abc_primary_text_disable_only_material_light = 2131230798;
 			
 			// aapt resource value: 0x7f08004f
-			public const int abc_primary_text_material_light = 2131230799;
+			public const int abc_primary_text_material_dark = 2131230799;
 			
 			// aapt resource value: 0x7f080050
-			public const int abc_search_url_text = 2131230800;
+			public const int abc_primary_text_material_light = 2131230800;
+			
+			// aapt resource value: 0x7f080051
+			public const int abc_search_url_text = 2131230801;
 			
 			// aapt resource value: 0x7f080005
 			public const int abc_search_url_text_normal = 2131230725;
@@ -1018,11 +1018,11 @@ namespace viewer
 			// aapt resource value: 0x7f080007
 			public const int abc_search_url_text_selected = 2131230727;
 			
-			// aapt resource value: 0x7f080051
-			public const int abc_secondary_text_material_dark = 2131230801;
-			
 			// aapt resource value: 0x7f080052
-			public const int abc_secondary_text_material_light = 2131230802;
+			public const int abc_secondary_text_material_dark = 2131230802;
+			
+			// aapt resource value: 0x7f080053
+			public const int abc_secondary_text_material_light = 2131230803;
 			
 			// aapt resource value: 0x7f080008
 			public const int accent_material_dark = 2131230728;
@@ -1225,11 +1225,11 @@ namespace viewer
 			// aapt resource value: 0x7f08003b
 			public const int switch_thumb_disabled_material_light = 2131230779;
 			
-			// aapt resource value: 0x7f080053
-			public const int switch_thumb_material_dark = 2131230803;
-			
 			// aapt resource value: 0x7f080054
-			public const int switch_thumb_material_light = 2131230804;
+			public const int switch_thumb_material_dark = 2131230804;
+			
+			// aapt resource value: 0x7f080055
+			public const int switch_thumb_material_light = 2131230805;
 			
 			// aapt resource value: 0x7f08003c
 			public const int switch_thumb_normal_material_dark = 2131230780;
@@ -1238,7 +1238,10 @@ namespace viewer
 			public const int switch_thumb_normal_material_light = 2131230781;
 			
 			// aapt resource value: 0x7f080049
-			public const int theme_devicedefault_background = 2131230793;
+			public const int tabBarColor = 2131230793;
+			
+			// aapt resource value: 0x7f08004a
+			public const int theme_devicedefault_background = 2131230794;
 			
 			static Color()
 			{
@@ -1891,8 +1894,8 @@ namespace viewer
 			// aapt resource value: 0x7f07002a
 			public const int bottom = 2131165226;
 			
-			// aapt resource value: 0x7f070084
-			public const int buddyImageView = 2131165316;
+			// aapt resource value: 0x7f070085
+			public const int buddyImageView = 2131165317;
 			
 			// aapt resource value: 0x7f070072
 			public const int buttonAuthorize = 2131165298;
@@ -1927,8 +1930,8 @@ namespace viewer
 			// aapt resource value: 0x7f07001e
 			public const int collapseActionView = 2131165214;
 			
-			// aapt resource value: 0x7f070087
-			public const int commentImageView = 2131165319;
+			// aapt resource value: 0x7f070088
+			public const int commentImageView = 2131165320;
 			
 			// aapt resource value: 0x7f07004a
 			public const int contentPanel = 2131165258;
@@ -1984,8 +1987,8 @@ namespace viewer
 			// aapt resource value: 0x7f070051
 			public const int expanded_menu = 2131165265;
 			
-			// aapt resource value: 0x7f070089
-			public const int favouritedImageView = 2131165321;
+			// aapt resource value: 0x7f07008a
+			public const int favouritedImageView = 2131165322;
 			
 			// aapt resource value: 0x7f070035
 			public const int fill = 2131165237;
@@ -2014,8 +2017,8 @@ namespace viewer
 			// aapt resource value: 0x7f07003f
 			public const int image = 2131165247;
 			
-			// aapt resource value: 0x7f070083
-			public const int imageView = 2131165315;
+			// aapt resource value: 0x7f070084
+			public const int imageView = 2131165316;
 			
 			// aapt resource value: 0x7f070080
 			public const int info = 2131165312;
@@ -2065,11 +2068,11 @@ namespace viewer
 			// aapt resource value: 0x7f07000c
 			public const int normal = 2131165196;
 			
-			// aapt resource value: 0x7f070088
-			public const int numberComments = 2131165320;
+			// aapt resource value: 0x7f070089
+			public const int numberComments = 2131165321;
 			
-			// aapt resource value: 0x7f07008a
-			public const int numberFav = 2131165322;
+			// aapt resource value: 0x7f07008b
+			public const int numberFav = 2131165323;
 			
 			// aapt resource value: 0x7f070028
 			public const int parallax = 2131165224;
@@ -2089,8 +2092,8 @@ namespace viewer
 			// aapt resource value: 0x7f070054
 			public const int radio = 2131165268;
 			
-			// aapt resource value: 0x7f070082
-			public const int recyclerView = 2131165314;
+			// aapt resource value: 0x7f070083
+			public const int recyclerView = 2131165315;
 			
 			// aapt resource value: 0x7f070030
 			public const int right = 2131165232;
@@ -2194,6 +2197,9 @@ namespace viewer
 			// aapt resource value: 0x7f070065
 			public const int submit_area = 2131165285;
 			
+			// aapt resource value: 0x7f070082
+			public const int swipeRefreshLayout = 2131165314;
+			
 			// aapt resource value: 0x7f07000d
 			public const int tabMode = 2131165197;
 			
@@ -2227,14 +2233,14 @@ namespace viewer
 			// aapt resource value: 0x7f070009
 			public const int up = 2131165193;
 			
-			// aapt resource value: 0x7f070086
-			public const int uploaded = 2131165318;
+			// aapt resource value: 0x7f070087
+			public const int uploaded = 2131165319;
 			
 			// aapt resource value: 0x7f070014
 			public const int useLogo = 2131165204;
 			
-			// aapt resource value: 0x7f070085
-			public const int username = 2131165317;
+			// aapt resource value: 0x7f070086
+			public const int username = 2131165318;
 			
 			// aapt resource value: 0x7f07000a
 			public const int view_offset_helper = 2131165194;

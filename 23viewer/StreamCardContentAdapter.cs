@@ -37,8 +37,9 @@ namespace viewer
         public void UpdatePhotos(List<PhotoInformation> newPhotos)
         {
             this.Photos.Clear();
-            this.Photos.AddRange(newPhotos);
+            this.NotifyDataSetChanged();
 
+            this.Photos.AddRange(newPhotos);
             this.NotifyDataSetChanged();
         }
 
@@ -46,7 +47,7 @@ namespace viewer
         {
             StreamViewHolder vh = holder as StreamViewHolder;
 
-            Picasso.With(Application.Context).Load(Photos[position].photo.MediumUrl).Resize(500,0).Into(vh.Image);
+            Picasso.With(Application.Context).Load(Photos[position].photo.MediumUrl).Priority(Picasso.Priority.High).Resize(500,0).Into(vh.Image);
             ImageService.Instance.LoadUrl(Photos[position].Owner.BuddyIconUrl).DownSampleInDip(height: 40).Transform(new CircleTransformation(20, "#7CD164")).Into(vh.BuddyIcon);
 
             // Load the photo caption from the photo album:

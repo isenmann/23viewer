@@ -17,16 +17,18 @@ namespace viewer
 
     public class StreamCardContent
     {
-        private List<PhotoInformation> photos = new List<PhotoInformation>();
+        public List<PhotoInformation> Photos = new List<PhotoInformation>();
         public event EventHandler<List<PhotoInformation>> LoadingFinished;
 
         public StreamCardContent()
         {
-            Task.Factory.StartNew(() => GetPhotoInformation());
+            Task.Factory.StartNew(() => GetPhotoInformation(true));
         }
 
-        private void GetPhotoInformation()
+        public void GetPhotoInformation(bool fireEvent)
         {
+            Photos.Clear();
+
             // Must be done asynchronously in the next step
             ContactCollection contacts = MainActivity.twentyThree.ContactsGetList();
             PhotoCollection favourites = MainActivity.twentyThree.FavoritesGetList();
@@ -34,7 +36,7 @@ namespace viewer
             PhotoCollection collection = new PhotoCollection();
             PhotoSearchExtras searchOptions = PhotoSearchExtras.None;
 
-            PhotoCollection photoCollection = MainActivity.twentyThree.PhotosGetContactsPhotos(50, false, false, true, searchOptions);
+            PhotoCollection photoCollection = MainActivity.twentyThree.PhotosGetContactsPhotos(50, false, false, false, searchOptions);
 
             foreach (var photo in photoCollection)
             {
@@ -55,11 +57,15 @@ namespace viewer
                 photo.DateUploaded = photoInfo.DateUploaded;
 
                 PhotoInformation info = new PhotoInformation() { photo = photo, Owner = contact, IsFavourite = favourite, NumberOfFavourites = 0, NumberOfComments = 0 };
-                photos.Add(info);
+                Photos.Add(info);
             }
 
-            photos.Sort((a, b) => b.photo.DateUploaded.CompareTo(a.photo.DateUploaded));
-            LoadingFinished?.Invoke(this, photos);
+            Photos.Sort((a, b) => b.photo.DateUploaded.CompareTo(a.photo.DateUploaded));
+
+            if (fireEvent)
+            {
+                LoadingFinished?.Invoke(this, Photos);
+            }
         }
     }
 }

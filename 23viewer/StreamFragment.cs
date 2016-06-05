@@ -1,5 +1,6 @@
 using Android.OS;
 using Android.Support.V4.App;
+using Android.Support.V4.Widget;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
@@ -13,6 +14,7 @@ namespace viewer
         LinearLayoutManager LayoutManager;
         StreamCardContentAdapter StreamContentAdapter;
         StreamCardContent StreamContent;
+        SwipeRefreshLayout RefreshLayout;
         Android.App.ProgressDialog progress;
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -57,7 +59,26 @@ namespace viewer
             LayoutManager = new LinearLayoutManager(this.Context);
             RecyclerView.SetLayoutManager(LayoutManager);
 
+            RefreshLayout = view.FindViewById<SwipeRefreshLayout>(Resource.Id.swipeRefreshLayout);
+
+            RefreshLayout.SetColorSchemeColors(Resource.Color.tabBarColor, Resource.Color.statusBarColor);
+            RefreshLayout.Refresh += RefreshLayout_Refresh;
+
             return view;
+        }
+
+        private void RefreshLayout_Refresh(object sender, System.EventArgs e)
+        {
+            System.Threading.Tasks.Task s = new System.Threading.Tasks.Task(() => StreamContent.GetPhotoInformation(false));
+            s.Start();
+            s.Wait();
+
+            this.Activity.RunOnUiThread(() =>
+            {
+                (RecyclerView.GetAdapter() as StreamCardContentAdapter).UpdatePhotos(StreamContent.Photos);
+            });
+
+            RefreshLayout.Refreshing = false;
         }
 
         private void StreamContent_LoadingFinished(object sender, List<PhotoInformation> e)

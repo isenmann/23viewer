@@ -3,4 +3,5 @@
 <resources>
   <color name="splash_background">#FFFFFF</color>
   <color name="statusBarColor">#7CD164</color>
+  <color name="tabBarColor">#5C9B4A</color>
 </resources>
