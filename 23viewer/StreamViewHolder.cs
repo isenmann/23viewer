@@ -18,7 +18,9 @@ namespace viewer
         public ImageView Comment { get; private set; }
         public TextView NumberOfComments { get; private set; }
 
-        public StreamViewHolder(View itemView, Action<int> listener) : base(itemView)
+        public Action<int> ImageClicked;
+
+        public StreamViewHolder(View itemView) : base(itemView)
         {
             // Locate and cache view references:
             Image = itemView.FindViewById<ImageView>(Resource.Id.imageView);
@@ -31,7 +33,12 @@ namespace viewer
             Comment = itemView.FindViewById<ImageView>(Resource.Id.commentImageView);
             NumberOfComments = itemView.FindViewById<TextView>(Resource.Id.numberComments);
 
-            itemView.Click += (sender, e) => listener(this.AdapterPosition);
+            Image.Click += Image_Click;
+        }
+
+        private void Image_Click(object sender, EventArgs e)
+        {
+            ImageClicked?.Invoke(AdapterPosition);
         }
     }
 }

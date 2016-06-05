@@ -16,7 +16,6 @@ using Android.Util;
 namespace viewer
 {
 	[Activity (Label = "23 viewer", Icon = "@mipmap/icon", Theme = "@style/ToolbarTheme")]
-
     public class MainActivity : FragmentActivity
     {
         public static TwentyThree twentyThree = null;

@@ -97,6 +97,7 @@
     <Compile Include="LoginActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="ProfileFragment.cs" />
+    <Compile Include="ImageFullscreen.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SplashActivity.cs" />
@@ -126,6 +127,9 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\StreamCardView.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ImageFullscreen.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>

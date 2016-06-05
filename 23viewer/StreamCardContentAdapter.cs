@@ -13,7 +13,7 @@ namespace viewer
     public class StreamCardContentAdapter : RecyclerView.Adapter
     {
         private List<PhotoInformation> Photos = new List<PhotoInformation>();
-        public event EventHandler<int> ItemClick;
+        public event EventHandler<int> ImageClick;
 
         public override int ItemCount
         {
@@ -30,7 +30,8 @@ namespace viewer
             View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.StreamCardView, parent, false);
 
             // Create a ViewHolder to hold view references inside the CardView:
-            StreamViewHolder vh = new StreamViewHolder(itemView, OnClick);
+            StreamViewHolder vh = new StreamViewHolder(itemView);
+            vh.ImageClicked = OnClick;
             return vh;
         }
 
@@ -172,8 +173,8 @@ namespace viewer
 
         void OnClick(int position)
         {
-            if (ItemClick != null)
-                ItemClick(this, position);
+            if (ImageClick != null)
+                ImageClick(this, position);
         }
     }
 }

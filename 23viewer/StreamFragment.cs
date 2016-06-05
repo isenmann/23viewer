@@ -1,3 +1,4 @@
+using Android.Content;
 using Android.OS;
 using Android.Support.V4.App;
 using Android.Support.V4.Widget;
@@ -30,12 +31,18 @@ namespace viewer
             progress.Show();
         }
 
-        void OnItemClick(object sender, int position)
+        void OnImageClick(object sender, int position)
         {
             int photoNum = position + 1;
 
+            Intent intent = new Intent(Android.App.Application.Context, typeof(ImageFullscreen));
+            Bundle b = new Bundle();
+            b.PutString("photoid", StreamContent.Photos[position].photo.LargeUrl); 
+            intent.PutExtras(b); 
+            StartActivity(intent);
+
             // Just to test the click handle, will be replaced by displaying the photo in fullscreen in the near future
-            Toast.MakeText(this.Context, "This photo number " + photoNum, ToastLength.Short).Show();
+            //Toast.MakeText(this.Context, "This photo number " + photoNum, ToastLength.Short).Show();
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -51,7 +58,7 @@ namespace viewer
             RecyclerView.Visibility = ViewStates.Invisible;
 
             StreamContentAdapter = new StreamCardContentAdapter();
-            StreamContentAdapter.ItemClick += OnItemClick;
+            StreamContentAdapter.ImageClick += OnImageClick;
 
             // Plug the adapter into the RecyclerView:
             RecyclerView.SetAdapter(StreamContentAdapter);
