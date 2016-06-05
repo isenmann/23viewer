@@ -70,15 +70,19 @@ namespace viewer
         private void RefreshLayout_Refresh(object sender, System.EventArgs e)
         {
             System.Threading.Tasks.Task s = new System.Threading.Tasks.Task(() => StreamContent.GetPhotoInformation(false));
+            s.ContinueWith(RefreshingFinished);
             s.Start();
-            s.Wait();
+        }
 
+        private void RefreshingFinished(System.Threading.Tasks.Task t)
+        {
+            if (t.IsFaulted) { return; }
+            
             this.Activity.RunOnUiThread(() =>
             {
+                RefreshLayout.Refreshing = false;
                 (RecyclerView.GetAdapter() as StreamCardContentAdapter).UpdatePhotos(StreamContent.Photos);
-            });
-
-            RefreshLayout.Refreshing = false;
+            });   
         }
 
         private void StreamContent_LoadingFinished(object sender, List<PhotoInformation> e)
