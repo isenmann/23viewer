@@ -1,31 +1,31 @@
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Support.V4.App;
 using Android.Support.V7.Widget;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
-using FFImageLoading;
-using FFImageLoading.Views;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using TwentyThreeNet;
 
 namespace viewer
 {
     public class StreamFragment : Fragment
     {
         RecyclerView RecyclerView;
-        RecyclerView.LayoutManager LayoutManager;
+        LinearLayoutManager LayoutManager;
         StreamCardContentAdapter StreamContentAdapter;
         StreamCardContent StreamContent;
+        Android.App.ProgressDialog progress;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
-            base.OnCreate(savedInstanceState);   
+            base.OnCreate(savedInstanceState);
+
+            progress = new Android.App.ProgressDialog(this.Context);
+            progress.Indeterminate = true;
+            progress.SetProgressStyle(Android.App.ProgressDialogStyle.Spinner);
+
+            progress.SetMessage(Resources.GetString(Resource.String.startup_Wait));
+            progress.SetCancelable(false);
+            progress.Show();
         }
 
         void OnItemClick(object sender, int position)
@@ -42,13 +42,14 @@ namespace viewer
 
             // Prepare the data source:
             StreamContent = new StreamCardContent();
-
-            // Instantiate the adapter and pass in its data source:
-            StreamContentAdapter = new StreamCardContentAdapter(StreamContent);
-            StreamContentAdapter.ItemClick += OnItemClick;
+            StreamContent.LoadingFinished += StreamContent_LoadingFinished;
 
             // Get our RecyclerView layout:
             RecyclerView = view.FindViewById<RecyclerView>(Resource.Id.recyclerView);
+            RecyclerView.Visibility = ViewStates.Invisible;
+
+            StreamContentAdapter = new StreamCardContentAdapter();
+            StreamContentAdapter.ItemClick += OnItemClick;
 
             // Plug the adapter into the RecyclerView:
             RecyclerView.SetAdapter(StreamContentAdapter);
@@ -57,6 +58,16 @@ namespace viewer
             RecyclerView.SetLayoutManager(LayoutManager);
 
             return view;
+        }
+
+        private void StreamContent_LoadingFinished(object sender, List<PhotoInformation> e)
+        {
+            this.Activity.RunOnUiThread(() =>
+            {
+                (RecyclerView.GetAdapter() as StreamCardContentAdapter).UpdatePhotos(e);
+                RecyclerView.Visibility = ViewStates.Visible;
+                progress.Hide();
+            });
         }
     }
 }

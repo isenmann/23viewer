@@ -1,16 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using FFImageLoading.Views;
-using FFImageLoading;
+using System.Threading.Tasks;
 using TwentyThreeNet;
 
 namespace viewer
@@ -27,52 +18,48 @@ namespace viewer
     public class StreamCardContent
     {
         private List<PhotoInformation> photos = new List<PhotoInformation>();
+        public event EventHandler<List<PhotoInformation>> LoadingFinished;
 
         public StreamCardContent()
+        {
+            Task.Factory.StartNew(() => GetPhotoInformation());
+        }
+
+        private void GetPhotoInformation()
         {
             // Must be done asynchronously in the next step
             ContactCollection contacts = MainActivity.twentyThree.ContactsGetList();
             PhotoCollection favourites = MainActivity.twentyThree.FavoritesGetList();
 
             PhotoCollection collection = new PhotoCollection();
-            PhotoSearchExtras searchOptions = PhotoSearchExtras.All;
+            PhotoSearchExtras searchOptions = PhotoSearchExtras.None;
 
-            foreach (var contact in contacts)
+            PhotoCollection photoCollection = MainActivity.twentyThree.PhotosGetContactsPhotos(50, false, false, true, searchOptions);
+
+            foreach (var photo in photoCollection)
             {
-                PhotoCollection photoCollection = MainActivity.twentyThree.PeopleGetPublicPhotos(contact.UserId, 1, 5, SafetyLevel.None, searchOptions);
+                bool favourite = false;
 
-                foreach (var photo in photoCollection)
+                foreach (var item in favourites)
                 {
-                    bool favourite = false;
-
-                    foreach (var item in favourites)
+                    if (item.PhotoId == photo.PhotoId)
                     {
-                        if(item.PhotoId == photo.PhotoId)
-                        {
-                            favourite = true;
-                            break;
-                        }
+                        favourite = true;
+                        break;
                     }
-                    
-                    int numberOfComments = MainActivity.twentyThree.PhotosCommentsGetList(photo.PhotoId).Count;
-                    int numberOfFavourites = MainActivity.twentyThree.PhotosGetFavorites(photo.PhotoId).Count;
-                    
-                    PhotoInformation info = new PhotoInformation() { photo = photo, Owner = contact, IsFavourite = favourite, NumberOfFavourites = numberOfFavourites, NumberOfComments = numberOfComments };
-                    photos.Add(info);
                 }
+
+                Contact contact = contacts.FirstOrDefault<Contact>(p => p.UserId == photo.UserId);
+                PhotoInfo photoInfo = MainActivity.twentyThree.PhotosGetInfo(photo.PhotoId, photo.Secret);
+
+                photo.DateUploaded = photoInfo.DateUploaded;
+
+                PhotoInformation info = new PhotoInformation() { photo = photo, Owner = contact, IsFavourite = favourite, NumberOfFavourites = 0, NumberOfComments = 0 };
+                photos.Add(info);
             }
 
             photos.Sort((a, b) => b.photo.DateUploaded.CompareTo(a.photo.DateUploaded));
-        }
-
-        public int NumPhotos
-        {
-            get { return photos.Count; }
-        }
-
-        public PhotoInformation this[int i]
-        {
-            get { return photos[i]; }
+            LoadingFinished?.Invoke(this, photos);
         }
     }
 }

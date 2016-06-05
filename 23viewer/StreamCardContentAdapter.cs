@@ -1,36 +1,27 @@
+using Android.App;
+using Android.Support.V7.Widget;
+using Android.Views;
+using FFImageLoading;
+using FFImageLoading.Transformations;
+using Square.Picasso;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Android.Support.V7.Widget;
-using FFImageLoading.Views;
-using FFImageLoading;
-using FFImageLoading.Work;
-using FFImageLoading.Transformations;
-using Android.Content.Res;
 
 namespace viewer
 {
     public class StreamCardContentAdapter : RecyclerView.Adapter
     {
-        public StreamCardContent StreamContent;
+        private List<PhotoInformation> Photos = new List<PhotoInformation>();
         public event EventHandler<int> ItemClick;
 
         public override int ItemCount
         {
-            get { return StreamContent.NumPhotos; }
+            get { return Photos.Count; }
         }
 
-        public StreamCardContentAdapter(StreamCardContent content)
+        public StreamCardContentAdapter()
         {
-            StreamContent = content;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -43,17 +34,26 @@ namespace viewer
             return vh;
         }
 
+        public void UpdatePhotos(List<PhotoInformation> newPhotos)
+        {
+            this.Photos.Clear();
+            this.Photos.AddRange(newPhotos);
+
+            this.NotifyDataSetChanged();
+        }
+
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             StreamViewHolder vh = holder as StreamViewHolder;
-            ImageService.Instance.LoadUrl(StreamContent[position].photo.LargeUrl).DownSampleInDip(height: 220).Into(vh.Image);
-            ImageService.Instance.LoadUrl(StreamContent[position].Owner.BuddyIconUrl).DownSampleInDip(height: 40).Transform(new CircleTransformation(20, "#7CD164")).Into(vh.BuddyIcon);
+
+            Picasso.With(Application.Context).Load(Photos[position].photo.MediumUrl).Resize(500,0).Into(vh.Image);
+            ImageService.Instance.LoadUrl(Photos[position].Owner.BuddyIconUrl).DownSampleInDip(height: 40).Transform(new CircleTransformation(20, "#7CD164")).Into(vh.BuddyIcon);
 
             // Load the photo caption from the photo album:
-            string title = StreamContent[position].photo.Title;
+            string title = Photos[position].photo.Title;
             if (String.IsNullOrWhiteSpace(title))
             {
-                title = StreamContent[position].photo.Description;
+                title = Photos[position].photo.Description;
             }
 
             if (!String.IsNullOrWhiteSpace(title))
@@ -70,15 +70,15 @@ namespace viewer
 
             vh.Caption.Text = title;
 
-            string name = StreamContent[position].Owner.RealName;
+            string name = Photos[position].Owner.RealName;
             if (String.IsNullOrWhiteSpace(name))
             {
-                name = StreamContent[position].Owner.UserName;
+                name = Photos[position].Owner.UserName;
             }
 
             vh.User.Text = name;
 
-            TimeSpan uploadTimespan = DateTime.Now - StreamContent[position].photo.DateUploaded;
+            TimeSpan uploadTimespan = DateTime.Now - Photos[position].photo.DateUploaded;
 
             string uploadTimeText = String.Empty;
 
@@ -119,19 +119,54 @@ namespace viewer
 
             vh.Date.Text = uploadTimeText;
 
-            if (StreamContent[position].IsFavourite)
+            if (Photos[position].IsFavourite)
             {
-                ImageService.Instance.LoadCompiledResource(Resource.Mipmap.ic_star_black_48dp.ToString()).DownSampleInDip(height: 40).Into(vh.MarkedAsFavourite);
+                Picasso.With(Application.Context).Load(Resource.Mipmap.ic_star_black_48dp).Fit().Into(vh.MarkedAsFavourite);
             }
             else
             {
-                ImageService.Instance.LoadCompiledResource(Resource.Mipmap.ic_star_border_black_48dp.ToString()).DownSampleInDip(height: 40).Into(vh.MarkedAsFavourite);
+                Picasso.With(Application.Context).Load(Resource.Mipmap.ic_star_border_black_48dp).Fit().Into(vh.MarkedAsFavourite);
             }
 
-            ImageService.Instance.LoadCompiledResource(Resource.Mipmap.ic_comment_black_48dp.ToString()).DownSampleInDip(height: 40).Into(vh.Comment);
+            Picasso.With(Application.Context).Load(Resource.Mipmap.ic_comment_black_48dp).Fit().Into(vh.Comment);
 
-            vh.NumberOfFavourites.Text = StreamContent[position].NumberOfFavourites.ToString();
-            vh.NumberOfComments.Text = StreamContent[position].NumberOfComments.ToString();    
+            MainActivity.twentyThree.PhotosCommentsGetListAsync(Photos[position].photo.PhotoId, OnPhotosCommentsGetList);
+            MainActivity.twentyThree.PhotosGetFavoritesAsync(Photos[position].photo.PhotoId, OnPhotosGetFavorites);
+
+            vh.NumberOfFavourites.Text = Photos[position].NumberOfFavourites.ToString();
+            vh.NumberOfComments.Text = Photos[position].NumberOfComments.ToString();    
+        }
+
+        void OnPhotosCommentsGetList(TwentyThreeNet.TwentyThreeResult<TwentyThreeNet.PhotoCommentCollection> result)
+        {
+            if (!result.HasError)
+            {
+                PhotoInformation info = Photos.FirstOrDefault<PhotoInformation>(p => p.photo.PhotoId == result.Result.PhotoId);
+                if (info != null)
+                {
+                    if(info.NumberOfComments != result.Result.Count)
+                    {
+                        info.NumberOfComments = result.Result.Count;
+                        this.NotifyItemChanged(Photos.IndexOf(info));
+                    }
+                }
+            }
+        }
+
+        void OnPhotosGetFavorites(TwentyThreeNet.TwentyThreeResult<TwentyThreeNet.PhotoFavoriteCollection> result)
+        {
+            if (!result.HasError)
+            {
+                PhotoInformation info = Photos.FirstOrDefault<PhotoInformation>(p => p.photo.PhotoId == result.Result.PhotoId);
+                if (info != null)
+                {
+                    if (info.NumberOfFavourites != result.Result.Count)
+                    {
+                        info.NumberOfFavourites = result.Result.Count;
+                        this.NotifyItemChanged(Photos.IndexOf(info));
+                    }
+                }
+            }
         }
 
         void OnClick(int position)

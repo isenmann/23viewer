@@ -2600,6 +2600,9 @@ namespace viewer
 			// aapt resource value: 0x7f0a001e
 			public const int minutes_ago = 2131361822;
 			
+			// aapt resource value: 0x7f0a001f
+			public const int startup_Wait = 2131361823;
+			
 			// aapt resource value: 0x7f0a0013
 			public const int status_bar_notification_info_overflow = 2131361811;
 			
