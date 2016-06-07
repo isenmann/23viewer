@@ -20,6 +20,10 @@ A few words to the navigation at the top. The tab with the home icon should disp
 
 If these features are implemented, I will start to implement the upload feature. This will include uploading photos from your smartphone directly to 23, no matter if they are in the gallery or directly from your smartphone camera.
 
+## Update (June 7th, 2016)
+
+It's now possible to click on the star to mark a photo as favourite or to remove it from you favourite list. Next step will be to add a comment to a photo and to see all the other comments.
+
 ## Update (June 5th, 2016)
 
 The next three small design steps and features are ready. You can now see when the photo was uploaded and you can see the number of comments and number of favourites besides the icons. If the star is filled with green then you have marked this image as favourite otherwise not. Also the photos are now displayed correctly which mean, that they are scaled to full width of the cards. 
