@@ -33,16 +33,33 @@ namespace viewer
 
         void OnImageClick(object sender, int position)
         {
-            int photoNum = position + 1;
-
             Intent intent = new Intent(Android.App.Application.Context, typeof(ImageFullscreen));
             Bundle b = new Bundle();
-            b.PutString("photoid", StreamContent.Photos[position].photo.LargeUrl); 
+            b.PutString("photoid", StreamContentAdapter.Photos[position].photo.LargeUrl); 
             intent.PutExtras(b); 
             StartActivity(intent);
+        }
 
-            // Just to test the click handle, will be replaced by displaying the photo in fullscreen in the near future
-            //Toast.MakeText(this.Context, "This photo number " + photoNum, ToastLength.Short).Show();
+        private void MarkAsFavClick(object sender, int position)
+        {
+            if (StreamContentAdapter.Photos[position].IsFavourite)
+            {
+                MainActivity.twentyThree.FavoritesRemove(StreamContentAdapter.Photos[position].photo.PhotoId);
+                Toast.MakeText(this.Context, Android.App.Application.Context.GetString(Resource.String.delete_as_fav), ToastLength.Short).Show();
+            }
+            else
+            {
+                MainActivity.twentyThree.FavoritesAdd(StreamContentAdapter.Photos[position].photo.PhotoId);
+                Toast.MakeText(this.Context, Android.App.Application.Context.GetString(Resource.String.marking_as_fav), ToastLength.Short).Show();
+            }
+
+            StreamContentAdapter.FavouriteStatusChanged(position);
+            MainActivity.twentyThree.InstanceCacheDisabled = true;
+        }
+
+        private void CommentsClick(object sender, int position)
+        {
+
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -59,6 +76,8 @@ namespace viewer
 
             StreamContentAdapter = new StreamCardContentAdapter();
             StreamContentAdapter.ImageClick += OnImageClick;
+            StreamContentAdapter.MarkAsFavClick += MarkAsFavClick;
+            StreamContentAdapter.CommentsClick += CommentsClick;
 
             // Plug the adapter into the RecyclerView:
             RecyclerView.SetAdapter(StreamContentAdapter);
@@ -76,6 +95,8 @@ namespace viewer
 
         private void RefreshLayout_Refresh(object sender, System.EventArgs e)
         {
+            // Do really an refresh of the data
+            MainActivity.twentyThree.InstanceCacheDisabled = true;
             System.Threading.Tasks.Task s = new System.Threading.Tasks.Task(() => StreamContent.GetPhotoInformation(false));
             s.ContinueWith(RefreshingFinished);
             s.Start();

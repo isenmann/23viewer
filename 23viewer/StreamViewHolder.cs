@@ -19,6 +19,8 @@ namespace viewer
         public TextView NumberOfComments { get; private set; }
 
         public Action<int> ImageClicked;
+        public Action<int> MarkedAsFavClicked;
+        public Action<int> CommentsClicked;
 
         public StreamViewHolder(View itemView) : base(itemView)
         {
@@ -34,6 +36,18 @@ namespace viewer
             NumberOfComments = itemView.FindViewById<TextView>(Resource.Id.numberComments);
 
             Image.Click += Image_Click;
+            MarkedAsFavourite.Click += MarkedAsFavourite_Click;
+            Comment.Click += Comment_Click;
+        }
+
+        private void Comment_Click(object sender, EventArgs e)
+        {
+            CommentsClicked?.Invoke(AdapterPosition);
+        }
+
+        private void MarkedAsFavourite_Click(object sender, EventArgs e)
+        {
+            MarkedAsFavClicked?.Invoke(AdapterPosition);
         }
 
         private void Image_Click(object sender, EventArgs e)

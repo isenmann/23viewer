@@ -11,4 +11,6 @@
   <string name="minute_ago">{0} minute ago</string>
   <string name="minutes_ago">{0} minutes ago</string>
   <string name="startup_Wait">Please wait, getting information from 23...</string>
+  <string name="marking_as_fav">Photo is now marked as favourite.</string>
+  <string name="delete_as_fav">Photo is no longer marked as favourite.</string>
 </resources>

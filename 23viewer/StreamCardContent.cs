@@ -62,6 +62,9 @@ namespace viewer
 
             Photos.Sort((a, b) => b.photo.DateUploaded.CompareTo(a.photo.DateUploaded));
 
+            // Activate cache for all other operations again
+            MainActivity.twentyThree.InstanceCacheDisabled = false;
+            
             if (fireEvent)
             {
                 LoadingFinished?.Invoke(this, Photos);

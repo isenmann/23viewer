@@ -12,8 +12,10 @@ namespace viewer
 {
     public class StreamCardContentAdapter : RecyclerView.Adapter
     {
-        private List<PhotoInformation> Photos = new List<PhotoInformation>();
+        public List<PhotoInformation> Photos { get; private set; }
         public event EventHandler<int> ImageClick;
+        public event EventHandler<int> MarkAsFavClick;
+        public event EventHandler<int> CommentsClick;
 
         public override int ItemCount
         {
@@ -22,6 +24,7 @@ namespace viewer
 
         public StreamCardContentAdapter()
         {
+            Photos = new List<PhotoInformation>();
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -31,7 +34,9 @@ namespace viewer
 
             // Create a ViewHolder to hold view references inside the CardView:
             StreamViewHolder vh = new StreamViewHolder(itemView);
-            vh.ImageClicked = OnClick;
+            vh.ImageClicked = OnImageClick;
+            vh.MarkedAsFavClicked = OnMarkAsFavClick;
+            vh.CommentsClicked = OnCommentsClick;
             return vh;
         }
 
@@ -48,7 +53,7 @@ namespace viewer
         {
             StreamViewHolder vh = holder as StreamViewHolder;
 
-            Picasso.With(Application.Context).Load(Photos[position].photo.MediumUrl).Priority(Picasso.Priority.High).Resize(500,0).Into(vh.Image);
+            Picasso.With(Application.Context).Load(Photos[position].photo.MediumUrl).Priority(Picasso.Priority.High).Resize(500, 0).Into(vh.Image);
             ImageService.Instance.LoadUrl(Photos[position].Owner.BuddyIconUrl).DownSampleInDip(height: 40).Transform(new CircleTransformation(20, "#7CD164")).Into(vh.BuddyIcon);
 
             // Load the photo caption from the photo album:
@@ -60,10 +65,10 @@ namespace viewer
 
             if (!String.IsNullOrWhiteSpace(title))
             {
-                if (title.Length > 30)
+                if (title.Length > 40)
                 {
-                    title = title.Substring(0, 30) + "...";
-                }  
+                    title = title.Substring(0, 40) + "...";
+                }
             }
             else
             {
@@ -136,7 +141,7 @@ namespace viewer
             MainActivity.twentyThree.PhotosGetFavoritesAsync(Photos[position].photo.PhotoId, OnPhotosGetFavorites);
 
             vh.NumberOfFavourites.Text = Photos[position].NumberOfFavourites.ToString();
-            vh.NumberOfComments.Text = Photos[position].NumberOfComments.ToString();    
+            vh.NumberOfComments.Text = Photos[position].NumberOfComments.ToString();
         }
 
         void OnPhotosCommentsGetList(TwentyThreeNet.TwentyThreeResult<TwentyThreeNet.PhotoCommentCollection> result)
@@ -146,7 +151,7 @@ namespace viewer
                 PhotoInformation info = Photos.FirstOrDefault<PhotoInformation>(p => p.photo.PhotoId == result.Result.PhotoId);
                 if (info != null)
                 {
-                    if(info.NumberOfComments != result.Result.Count)
+                    if (info.NumberOfComments != result.Result.Count)
                     {
                         info.NumberOfComments = result.Result.Count;
                         this.NotifyItemChanged(Photos.IndexOf(info));
@@ -171,10 +176,29 @@ namespace viewer
             }
         }
 
-        void OnClick(int position)
+        public void FavouriteStatusChanged(int position)
         {
-            if (ImageClick != null)
-                ImageClick(this, position);
+            PhotoInformation info = Photos[position];
+            if (info != null)
+            {
+                info.IsFavourite = !info.IsFavourite;
+                this.NotifyItemChanged(Photos.IndexOf(info));
+            }
+        }
+
+        void OnImageClick(int position)
+        {
+            ImageClick?.Invoke(this, position);
+        }
+
+        void OnMarkAsFavClick(int position)
+        {
+            MarkAsFavClick?.Invoke(this, position);
+        }
+
+        void OnCommentsClick(int position)
+        {
+            CommentsClick?.Invoke(this, position);
         }
     }
 }
