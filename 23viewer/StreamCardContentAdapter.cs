@@ -1,4 +1,5 @@
 using Android.App;
+using Android.Graphics.Drawables;
 using Android.Support.V7.Widget;
 using Android.Views;
 using FFImageLoading;
@@ -49,11 +50,16 @@ namespace viewer
             this.NotifyDataSetChanged();
         }
 
+        private ColorDrawable GreyPlaceholder = new ColorDrawable(Android.Graphics.Color.LightGray);
+
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             StreamViewHolder vh = holder as StreamViewHolder;
 
-            Picasso.With(Application.Context).Load(Photos[position].photo.MediumUrl).Priority(Picasso.Priority.High).Resize(500, 0).Into(vh.Image);
+            double height = (double)((double)Photos[position].Size.Height / (double)Photos[position].Size.Width) * (double)500;
+            GreyPlaceholder.SetBounds(0, 0, 500, (int)height);
+
+            Picasso.With(Application.Context).Load(Photos[position].photo.MediumUrl).Placeholder(GreyPlaceholder).Priority(Picasso.Priority.High).Resize(500, 0).Into(vh.Image);
             ImageService.Instance.LoadUrl(Photos[position].Owner.BuddyIconUrl).DownSampleInDip(height: 40).Transform(new CircleTransformation(20, "#7CD164")).Into(vh.BuddyIcon);
 
             // Load the photo caption from the photo album:

@@ -55,6 +55,9 @@
       <HintPath>..\packages\Xamarin.FFImageLoading.Transformations.2.1.0\lib\MonoAndroid10\FFImageLoading.Transformations.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PhotoView">
+      <HintPath>..\Components\PhotoView-1.2.4\lib\android\PhotoView.dll</HintPath>
+    </Reference>
     <Reference Include="Square.OkHttp, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Square.OkHttp.2.4.0.1\lib\MonoAndroid\Square.OkHttp.dll</HintPath>
       <Private>True</Private>
@@ -154,6 +157,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>
+    <XamarinComponentReference Include="PhotoView">
+      <Visible>False</Visible>
+      <Version>1.2.4</Version>
+    </XamarinComponentReference>
     <XamarinComponentReference Include="square.picasso">
       <Visible>False</Visible>
       <Version>2.5.2.2</Version>

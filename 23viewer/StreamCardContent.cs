@@ -10,6 +10,7 @@ namespace viewer
     {
         public Photo photo;
         public Contact Owner;
+        public Size Size;
         public bool IsFavourite;
         public int NumberOfFavourites;
         public int NumberOfComments;
@@ -55,8 +56,9 @@ namespace viewer
                 PhotoInfo photoInfo = MainActivity.twentyThree.PhotosGetInfo(photo.PhotoId, photo.Secret);
 
                 photo.DateUploaded = photoInfo.DateUploaded;
+                var size = MainActivity.twentyThree.PhotosGetSizes(photo.PhotoId).First<Size>(p => p.Label.Equals("Medium"));
 
-                PhotoInformation info = new PhotoInformation() { photo = photo, Owner = contact, IsFavourite = favourite, NumberOfFavourites = 0, NumberOfComments = 0 };
+                PhotoInformation info = new PhotoInformation() { photo = photo, Owner = contact, IsFavourite = favourite, NumberOfFavourites = 0, NumberOfComments = 0, Size = size };
                 Photos.Add(info);
             }
 
