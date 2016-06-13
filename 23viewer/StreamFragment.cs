@@ -59,7 +59,9 @@ namespace viewer
 
         private void CommentsClick(object sender, int position)
         {
-
+            FragmentTransaction transaction = this.FragmentManager.BeginTransaction();
+            CommentsDialogFragment commentsDialog = new CommentsDialogFragment(StreamContentAdapter.Photos[position].photo.PhotoId);
+            commentsDialog.Show(transaction, "Comments dialog");
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

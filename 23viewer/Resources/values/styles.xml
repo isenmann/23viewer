@@ -32,4 +32,9 @@
   <style name="MyCustomTextAppearance" parent="TextAppearance.Design.Tab">
     <item name="textAllCaps">false</item>
   </style>
+
+  <style name="CommentsDialogAnimation">
+    <item name="android:windowEnterAnimation">@anim/slideUp</item>
+    <item name="android:windowExitAnimation">@anim/slideDown</item>
+  </style>
 </resources>

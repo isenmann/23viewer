@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="5dip">
+    <LinearLayout
+        android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dip"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="2dip">
+        <ImageView
+            android:id="@+id/buddyImageViewComment"
+            android:scaleType="fitCenter"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_alignParentLeft="true" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_alignTop="@+id/thumbnail"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#333333"
+        android:text="Username"
+        android:textStyle="bold"
+        android:id="@+id/usernameComment"
+        android:layout_marginLeft="2dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_alignBottom="@+id/thumbnail"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#CECECE"
+        android:text="Date"
+        android:textStyle="italic"
+        android:id="@+id/commented"
+        android:layout_marginLeft="2dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/thumbnail"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#333333"
+        android:text="Comment"
+        android:id="@+id/comment"
+        android:layout_marginLeft="2dp" />
+</RelativeLayout>
