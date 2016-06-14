@@ -32,12 +32,22 @@ namespace viewer
         {
             base.OnCreateView(inflater, container, savedInstanceState);
 
-            
             View view = inflater.Inflate(Resource.Layout.Comments, container, false);
-            listview = view.FindViewById<ListView>(Resource.Id.list); 
-                                                                 
-            listview.Adapter = new CommentsAdapter(photoID);
+            listview = view.FindViewById<ListView>(Resource.Id.list);
+
+            CommentsAdapter adapter = new CommentsAdapter(photoID);
+            adapter.AddCommentClick += Adapter_AddCommentClick;
+            listview.Adapter = adapter;
+
             return view;
+        }
+
+        private void Adapter_AddCommentClick(object sender, string comment)
+        {
+            if (!string.IsNullOrWhiteSpace(comment))
+            {
+                MainActivity.twentyThree.PhotosCommentsAddComment(photoID, comment);
+            }
         }
 
         public override void OnActivityCreated(Bundle savedInstanceState)

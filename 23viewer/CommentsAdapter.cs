@@ -19,7 +19,11 @@ namespace viewer
 {
     public class CommentsAdapter : BaseAdapter<PhotoComment>
     {
-        PhotoCommentCollection Comments;
+        private PhotoCommentCollection Comments;
+        private EditText EditCommentText;
+        private ImageView SendComment;
+
+        public event EventHandler<string> AddCommentClick;
 
         public CommentsAdapter(string photoID) : base()
         {
@@ -43,10 +47,10 @@ namespace viewer
                 return Comments.ToArray<TwentyThreeNet.PhotoComment>()[position];
             }
         }
-
+        
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            View view = convertView; 
+            View view = convertView;
 
             if (view == null)
             {
@@ -54,12 +58,29 @@ namespace viewer
             }
 
             view.FindViewById<TextView>(Resource.Id.comment).Text = Comments[position].CommentHtml;
-            view.FindViewById<TextView>(Resource.Id.usernameComment).Text = Comments[position].AuthorUserName;
             view.FindViewById<TextView>(Resource.Id.commented).Text = Comments[position].DateCreated.ToShortDateString();
 
             Person user = MainActivity.twentyThree.PeopleGetInfo(Comments[position].AuthorUserId);
+            string name = user.RealName;
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                name = user.UserName;
+            }
+            
+            view.FindViewById<TextView>(Resource.Id.usernameComment).Text = name;
             ImageService.Instance.LoadUrl(user.BuddyIconUrl).DownSampleInDip(height: 40).Transform(new CircleTransformation(20, "#7CD164")).Into(view.FindViewById<ImageViewAsync>(Resource.Id.buddyImageViewComment));
             return view;
+        }
+
+        private void CommentsAdapter_Click(object sender, EventArgs e)
+        {
+            AddCommentClick?.Invoke(sender, EditCommentText.Text);
+
+            // Reload comments
+            string photoID = Comments.PhotoId;
+            Comments.Clear();
+            Comments = MainActivity.twentyThree.PhotosCommentsGetList(Comments.PhotoId);
         }
     }
 }

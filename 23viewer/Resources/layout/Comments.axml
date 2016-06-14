@@ -11,17 +11,40 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="0.8" />
-    <TextView
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="#EFEFEF" />
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#333333"
-        android:text="Comment:"
-        android:textStyle="bold"
-        android:id="@+id/commentEdit"
-        android:layout_marginLeft="4dp" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:id="@+id/commentEditText" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="0dp">
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginRight="4dp">
+            <EditText
+                android:layout_width="match_parent"
+                android:hint="@string/add_comment"
+                android:layout_height="40dp"
+                android:layout_toLeftOf="@+id/sendButton"
+                android:id="@+id/commentEditText" />
+            <ImageView
+                android:id="@+id/sendButton"
+                android:scaleType="fitCenter"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_send_black_48dp" />
+        </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>
