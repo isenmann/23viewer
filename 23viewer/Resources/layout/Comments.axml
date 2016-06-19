@@ -36,10 +36,10 @@
                 android:layout_width="match_parent"
                 android:hint="@string/add_comment"
                 android:layout_height="40dp"
-                android:layout_toLeftOf="@+id/sendButton"
+                android:layout_toLeftOf="@+id/sendCommentButton"
                 android:id="@+id/commentEditText" />
             <ImageView
-                android:id="@+id/sendButton"
+                android:id="@+id/sendCommentButton"
                 android:scaleType="fitCenter"
                 android:layout_width="34dp"
                 android:layout_height="34dp"

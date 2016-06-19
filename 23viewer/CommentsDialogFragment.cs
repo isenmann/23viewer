@@ -16,7 +16,11 @@ namespace viewer
     public class CommentsDialogFragment : DialogFragment
     {
         ListView listview;
+        View view;
+        ImageView sendButton;
+        EditText text;
         string photoID;
+        public bool CommentAdded = false;
 
         public CommentsDialogFragment(string photoID)
         {
@@ -32,21 +36,27 @@ namespace viewer
         {
             base.OnCreateView(inflater, container, savedInstanceState);
 
-            View view = inflater.Inflate(Resource.Layout.Comments, container, false);
+            view = inflater.Inflate(Resource.Layout.Comments, container, false);
             listview = view.FindViewById<ListView>(Resource.Id.list);
 
+            sendButton = view.FindViewById<ImageView>(Resource.Id.sendCommentButton);
+            text = view.FindViewById<EditText>(Resource.Id.commentEditText);
+
             CommentsAdapter adapter = new CommentsAdapter(photoID);
-            adapter.AddCommentClick += Adapter_AddCommentClick;
             listview.Adapter = adapter;
+
+            sendButton.Click += SendButton_Click;
 
             return view;
         }
 
-        private void Adapter_AddCommentClick(object sender, string comment)
+        private void SendButton_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(comment))
+            if (!string.IsNullOrWhiteSpace(text.Text))
             {
-                MainActivity.twentyThree.PhotosCommentsAddComment(photoID, comment);
+                MainActivity.twentyThree.PhotosCommentsAddComment(photoID, text.Text);
+                (listview.Adapter as CommentsAdapter).Refresh();
+                text.Text = String.Empty;
             }
         }
 

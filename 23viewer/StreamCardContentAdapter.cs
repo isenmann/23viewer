@@ -59,7 +59,8 @@ namespace viewer
             double height = (double)((double)Photos[position].Size.Height / (double)Photos[position].Size.Width) * (double)500;
             GreyPlaceholder.SetBounds(0, 0, 500, (int)height);
 
-            Picasso.With(Application.Context).Load(Photos[position].photo.MediumUrl).Placeholder(GreyPlaceholder).Priority(Picasso.Priority.High).Resize(500, 0).Into(vh.Image);
+            Picasso.With(Application.Context).Load(Photos[position].photo.MediumUrl).Priority(Picasso.Priority.High).Resize(500, 0).Into(vh.Image);
+            //Picasso.With(Application.Context).Load(Photos[position].photo.MediumUrl).Placeholder(GreyPlaceholder).Priority(Picasso.Priority.High).Resize(500, 0).Into(vh.Image);
             ImageService.Instance.LoadUrl(Photos[position].Owner.BuddyIconUrl).DownSampleInDip(height: 40).Transform(new CircleTransformation(20, "#7CD164")).Into(vh.BuddyIcon);
 
             // Load the photo caption from the photo album:
@@ -143,8 +144,10 @@ namespace viewer
 
             Picasso.With(Application.Context).Load(Resource.Mipmap.ic_comment_black_48dp).Fit().Into(vh.Comment);
 
+            MainActivity.twentyThree.InstanceCacheDisabled = true;
             MainActivity.twentyThree.PhotosCommentsGetListAsync(Photos[position].photo.PhotoId, OnPhotosCommentsGetList);
             MainActivity.twentyThree.PhotosGetFavoritesAsync(Photos[position].photo.PhotoId, OnPhotosGetFavorites);
+            MainActivity.twentyThree.InstanceCacheDisabled = false;
 
             vh.NumberOfFavourites.Text = Photos[position].NumberOfFavourites.ToString();
             vh.NumberOfComments.Text = Photos[position].NumberOfComments.ToString();
@@ -188,6 +191,15 @@ namespace viewer
             if (info != null)
             {
                 info.IsFavourite = !info.IsFavourite;
+                this.NotifyItemChanged(Photos.IndexOf(info));
+            }
+        }
+
+        public void CommentStatusChanged(int position)
+        {
+            PhotoInformation info = Photos[position];
+            if (info != null)
+            {
                 this.NotifyItemChanged(Photos.IndexOf(info));
             }
         }

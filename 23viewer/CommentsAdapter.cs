@@ -21,13 +21,15 @@ namespace viewer
     {
         private PhotoCommentCollection Comments;
         private EditText EditCommentText;
-        private ImageView SendComment;
+        private ImageView SendCommentButton;
 
         public event EventHandler<string> AddCommentClick;
 
         public CommentsAdapter(string photoID) : base()
         {
+            MainActivity.twentyThree.InstanceCacheDisabled = true;
             Comments = MainActivity.twentyThree.PhotosCommentsGetList(photoID);
+            MainActivity.twentyThree.InstanceCacheDisabled = false;
         }
 
         public override long GetItemId(int position)
@@ -58,7 +60,47 @@ namespace viewer
             }
 
             view.FindViewById<TextView>(Resource.Id.comment).Text = Comments[position].CommentHtml;
-            view.FindViewById<TextView>(Resource.Id.commented).Text = Comments[position].DateCreated.ToShortDateString();
+
+            TimeSpan commentTimespan = DateTime.Now - Comments[position].DateCreated;
+
+            string commentTimeText = string.Empty;
+
+            if (commentTimespan.Days > 0)
+            {
+                if (commentTimespan.Days == 1)
+                {
+                    commentTimeText = string.Format(Application.Context.GetString(Resource.String.day_ago), commentTimespan.Days.ToString());
+                }
+                else
+                {
+                    commentTimeText = string.Format(Application.Context.GetString(Resource.String.days_ago), commentTimespan.Days.ToString());
+                }
+            }
+            else if (commentTimespan.Hours > 0)
+            {
+                if (commentTimespan.Hours == 1)
+                {
+                    commentTimeText = string.Format(Application.Context.GetString(Resource.String.hour_ago), commentTimespan.Hours.ToString());
+                }
+                else
+                {
+                    commentTimeText = string.Format(Application.Context.GetString(Resource.String.hours_ago), commentTimespan.Hours.ToString());
+                }
+
+            }
+            else if (commentTimespan.Minutes > 0)
+            {
+                if (commentTimespan.Minutes == 1)
+                {
+                    commentTimeText = string.Format(Application.Context.GetString(Resource.String.minute_ago), commentTimespan.Minutes.ToString());
+                }
+                else
+                {
+                    commentTimeText = string.Format(Application.Context.GetString(Resource.String.minutes_ago), commentTimespan.Minutes.ToString());
+                }
+            }
+
+            view.FindViewById<TextView>(Resource.Id.commented).Text = commentTimeText;
 
             Person user = MainActivity.twentyThree.PeopleGetInfo(Comments[position].AuthorUserId);
             string name = user.RealName;
@@ -73,14 +115,14 @@ namespace viewer
             return view;
         }
 
-        private void CommentsAdapter_Click(object sender, EventArgs e)
+        public void Refresh()
         {
-            AddCommentClick?.Invoke(sender, EditCommentText.Text);
-
             // Reload comments
             string photoID = Comments.PhotoId;
             Comments.Clear();
+            MainActivity.twentyThree.InstanceCacheDisabled = true;
             Comments = MainActivity.twentyThree.PhotosCommentsGetList(Comments.PhotoId);
+            MainActivity.twentyThree.InstanceCacheDisabled = false;
         }
     }
 }
