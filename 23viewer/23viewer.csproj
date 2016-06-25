@@ -98,9 +98,13 @@
   <ItemGroup>
     <Compile Include="CommentsAdapter.cs" />
     <Compile Include="CommentsDialogFragment.cs" />
+    <Compile Include="ExploreCardContent.cs" />
+    <Compile Include="ExploreCardContentAdapter.cs" />
+    <Compile Include="ExploreEndlessScroll.cs" />
     <Compile Include="ExploreFragment.cs" />
     <Compile Include="LoginActivity.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="PhotoInformation.cs" />
     <Compile Include="ProfileFragment.cs" />
     <Compile Include="ImageFullscreen.cs" />
     <Compile Include="Resources\Resource.designer.cs" />

@@ -1,17 +1,23 @@
-using Android.App;
-using Android.Graphics.Drawables;
-using Android.Support.V7.Widget;
-using Android.Views;
-using FFImageLoading;
-using FFImageLoading.Transformations;
-using Square.Picasso;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using Android.Support.V7.Widget;
+using Android.Graphics.Drawables;
+using Square.Picasso;
+using FFImageLoading;
+using FFImageLoading.Transformations;
 
 namespace viewer
 {
-    public class StreamCardContentAdapter : RecyclerView.Adapter
+    public class ExploreCardContentAdapter : RecyclerView.Adapter
     {
         public List<PhotoInformation> Photos { get; private set; }
         public event EventHandler<int> ImageClick;
@@ -23,7 +29,7 @@ namespace viewer
             get { return Photos.Count; }
         }
 
-        public StreamCardContentAdapter()
+        public ExploreCardContentAdapter()
         {
             Photos = new List<PhotoInformation>();
         }
@@ -50,9 +56,21 @@ namespace viewer
             this.NotifyDataSetChanged();
         }
 
+        public void NextPageReady(List<PhotoInformation> newPhotos)
+        {
+            int index = this.Photos.Count;
+            this.Photos.AddRange(newPhotos);
+            this.NotifyItemRangeInserted(index, newPhotos.Count);
+        }
+
+        private ColorDrawable GreyPlaceholder = new ColorDrawable(Android.Graphics.Color.LightGray);
+
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             StreamViewHolder vh = holder as StreamViewHolder;
+
+            double height = (double)((double)Photos[position].Size.Height / (double)Photos[position].Size.Width) * (double)500;
+            GreyPlaceholder.SetBounds(0, 0, 500, (int)height);
 
             Picasso.With(Application.Context).Load(Photos[position].photo.MediumUrl).Priority(Picasso.Priority.High).Resize(500, 0).Into(vh.Image);
             ImageService.Instance.LoadUrl(Photos[position].Owner.BuddyIconUrl).DownSampleInDip(height: 40).Transform(new CircleTransformation(20, "#7CD164")).Into(vh.BuddyIcon);
@@ -79,7 +97,7 @@ namespace viewer
             vh.Caption.Text = title;
 
             string name = Photos[position].Owner.RealName;
-            if (String.IsNullOrWhiteSpace(name))
+            if (String.IsNullOrWhiteSpace(name) || name.ToLowerInvariant().Contains("name hidden"))
             {
                 name = Photos[position].Owner.UserName;
             }
@@ -123,6 +141,10 @@ namespace viewer
                 {
                     uploadTimeText = String.Format(Application.Context.GetString(Resource.String.minutes_ago), uploadTimespan.Minutes.ToString());
                 }
+            }
+            else if (uploadTimespan.Seconds > 0)
+            {
+                uploadTimeText = String.Format(Application.Context.GetString(Resource.String.seconds_ago), uploadTimespan.Seconds.ToString());
             }
 
             vh.Date.Text = uploadTimeText;
