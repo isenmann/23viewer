@@ -24,6 +24,10 @@ A few words to the navigation at the top. The tab with the home icon should disp
 
 If these features are implemented, I will start to implement the upload feature. This will include uploading photos from your smartphone directly to 23, no matter if they are in the gallery or directly from your smartphone camera.
 
+## Update (June 26th, 2016)
+
+The implementation of the explore tab has started. Right now it's only possible to see the most recent public uploads to 23. At the moment it looks like the stream, just with other photos, but there will be some changes in the near future, e.g. searching 23 like on the website, browsing tags, see new/other photogroups etc. 
+
 ## Update (June 14th, 2016)
 
 It's possible now to view all comments for a photo with clicking on the comment icon. Also adding a comment is nearly finished which is also possible from the comments dialog. The fullscreen photo is now zoomable like in any other photo/image application.
