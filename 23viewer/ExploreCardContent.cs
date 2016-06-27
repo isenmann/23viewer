@@ -29,7 +29,8 @@ namespace viewer
         public void GetPhotoInformation(bool fireEvent)
         {
             Photos.Clear();
-
+            PageIndex = 0;
+            
             Favourites = MainActivity.twentyThree.FavoritesGetList();
             Photos.AddRange(this.LoadPhotos());
 
@@ -43,7 +44,7 @@ namespace viewer
         {
             List<PhotoInformation> photos = new List<PhotoInformation>();
 
-            PhotoCollection photoCollection = MainActivity.twentyThree.PhotosGetRecent(++PageIndex, 3, PhotoSearchExtras.All);
+            PhotoCollection photoCollection = MainActivity.twentyThree.PhotosGetRecent(++PageIndex, 5, PhotoSearchExtras.All);
 
             foreach (var photo in photoCollection)
             {
@@ -65,9 +66,8 @@ namespace viewer
                 contact.UserId = photoInfo.OwnerUserId;
 
                 photo.DateUploaded = photoInfo.DateUploaded;
-                var size = MainActivity.twentyThree.PhotosGetSizes(photo.PhotoId).First<Size>(p => p.Label.Equals("Medium"));
 
-                PhotoInformation info = new PhotoInformation() { photo = photo, Owner = contact, IsFavourite = favourite, NumberOfFavourites = 0, NumberOfComments = 0, Size = size };
+                PhotoInformation info = new PhotoInformation() { photo = photo, Owner = contact, IsFavourite = favourite, NumberOfFavourites = 0, NumberOfComments = 0 };
                 photos.Add(info);
             }
 

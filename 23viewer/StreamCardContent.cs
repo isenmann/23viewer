@@ -46,9 +46,8 @@ namespace viewer
                 PhotoInfo photoInfo = MainActivity.twentyThree.PhotosGetInfo(photo.PhotoId, photo.Secret);
 
                 photo.DateUploaded = photoInfo.DateUploaded;
-                var size = MainActivity.twentyThree.PhotosGetSizes(photo.PhotoId).First<Size>(p => p.Label.Equals("Medium"));
 
-                PhotoInformation info = new PhotoInformation() { photo = photo, Owner = contact, IsFavourite = favourite, NumberOfFavourites = 0, NumberOfComments = 0, Size = size };
+                PhotoInformation info = new PhotoInformation() { photo = photo, Owner = contact, IsFavourite = favourite, NumberOfFavourites = 0, NumberOfComments = 0 };
                 Photos.Add(info);
             }
 
