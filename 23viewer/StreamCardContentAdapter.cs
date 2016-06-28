@@ -86,7 +86,7 @@ namespace viewer
 
             vh.User.Text = name;
 
-            TimeSpan uploadTimespan = DateTime.Now - Photos[position].photo.DateUploaded;
+            TimeSpan uploadTimespan = DateTime.Now - Photos[position].photo.DateUploaded.ToLocalTime();
 
             string uploadTimeText = String.Empty;
 
