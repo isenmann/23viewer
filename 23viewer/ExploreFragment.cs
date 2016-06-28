@@ -41,7 +41,7 @@ namespace viewer
         {
             Intent intent = new Intent(Android.App.Application.Context, typeof(ImageFullscreen));
             Bundle b = new Bundle();
-            b.PutString("photoid", ExploreContentAdapter.Photos[position].photo.LargeUrl);
+            b.PutString("photourl", ExploreContentAdapter.Photos[position].photo.LargeUrl);
             intent.PutExtras(b);
             StartActivity(intent);
         }

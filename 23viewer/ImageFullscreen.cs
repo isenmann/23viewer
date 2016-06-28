@@ -31,7 +31,7 @@ namespace viewer
             var imageView = FindViewById<ImageView>(Resource.Id.imageViewFullscreen);
             mAttacher = new PhotoViewAttacher(imageView);
 
-            string photoID = Intent.GetStringExtra("photoid") ?? String.Empty;
+            string photoID = Intent.GetStringExtra("photourl") ?? String.Empty;
             
             if(!String.IsNullOrWhiteSpace(photoID))
             {
