@@ -106,6 +106,8 @@ namespace viewer
 
         private void RefreshingFinished(System.Threading.Tasks.Task t)
         {
+            MainActivity.twentyThree.InstanceCacheDisabled = false;
+
             if (t.IsFaulted) { return; }
             
             this.Activity.RunOnUiThread(() =>

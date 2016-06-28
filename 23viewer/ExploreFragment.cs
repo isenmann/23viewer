@@ -156,6 +156,7 @@ namespace viewer
         private void LoadNextPageFinished(System.Threading.Tasks.Task t)
         {
             LoadingNextPage = false;
+            MainActivity.twentyThree.InstanceCacheDisabled = false;
 
             if (t.IsFaulted) { return; }
 
