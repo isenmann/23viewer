@@ -64,6 +64,11 @@ namespace viewer
             commentsDialog.Show(transaction, "Comments dialog");
         }
 
+        private void InfoClick(object sender, int e)
+        {
+            // Open info dialogfragment
+        }
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.Stream, container, false);
@@ -80,6 +85,7 @@ namespace viewer
             StreamContentAdapter.ImageClick += OnImageClick;
             StreamContentAdapter.MarkAsFavClick += MarkAsFavClick;
             StreamContentAdapter.CommentsClick += CommentsClick;
+            StreamContentAdapter.InfoClick += InfoClick;
 
             // Plug the adapter into the RecyclerView:
             RecyclerView.SetAdapter(StreamContentAdapter);

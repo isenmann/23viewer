@@ -23,6 +23,7 @@ namespace viewer
         public event EventHandler<int> ImageClick;
         public event EventHandler<int> MarkAsFavClick;
         public event EventHandler<int> CommentsClick;
+        public event EventHandler<int> InfoClick;
 
         public override int ItemCount
         {
@@ -44,6 +45,7 @@ namespace viewer
             vh.ImageClicked = OnImageClick;
             vh.MarkedAsFavClicked = OnMarkAsFavClick;
             vh.CommentsClicked = OnCommentsClick;
+            vh.InfoClicked = OnInfoClick;
             return vh;
         }
 
@@ -154,6 +156,7 @@ namespace viewer
             }
 
             Picasso.With(Application.Context).Load(Resource.Mipmap.ic_comment_black_48dp).Fit().Into(vh.Comment);
+            Picasso.With(Application.Context).Load(Resource.Mipmap.ic_info_black_48dp).Fit().Into(vh.Info);
 
             MainActivity.twentyThree.InstanceCacheDisabled = true;
             MainActivity.twentyThree.PhotosCommentsGetListAsync(Photos[position].photo.PhotoId, OnPhotosCommentsGetList);
@@ -228,6 +231,11 @@ namespace viewer
         void OnCommentsClick(int position)
         {
             CommentsClick?.Invoke(this, position);
+        }
+
+        void OnInfoClick(int position)
+        {
+            InfoClick?.Invoke(this, position);
         }
     }
 }

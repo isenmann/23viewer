@@ -70,6 +70,12 @@ namespace viewer
             commentsDialog.Show(transaction, "Comments dialog");
         }
 
+        private void InfoClick(object sender, int e)
+        {
+            // Open info dialogfragment
+        }
+
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.Explore, container, false);
@@ -86,6 +92,7 @@ namespace viewer
             ExploreContentAdapter.ImageClick += OnImageClick;
             ExploreContentAdapter.MarkAsFavClick += MarkAsFavClick;
             ExploreContentAdapter.CommentsClick += CommentsClick;
+            ExploreContentAdapter.InfoClick += InfoClick;
 
             // Plug the adapter into the RecyclerView:
             RecyclerView.SetAdapter(ExploreContentAdapter);

@@ -2044,6 +2044,9 @@ namespace viewer
 			// aapt resource value: 0x7f07008b
 			public const int info = 2131165323;
 			
+			// aapt resource value: 0x7f070097
+			public const int infoImageView = 2131165335;
+			
 			// aapt resource value: 0x7f070000
 			public const int item_touch_helper_previous_elevation = 2131165184;
 			
@@ -2537,22 +2540,25 @@ namespace viewer
 			public const int ic_home_white_48dp = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int ic_search_black_48dp = 2130903045;
+			public const int ic_info_black_48dp = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int ic_search_white_48dp = 2130903046;
+			public const int ic_search_black_48dp = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int ic_send_black_48dp = 2130903047;
+			public const int ic_search_white_48dp = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int ic_star_black_48dp = 2130903048;
+			public const int ic_send_black_48dp = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int ic_star_border_black_48dp = 2130903049;
+			public const int ic_star_black_48dp = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int Icon = 2130903050;
+			public const int ic_star_border_black_48dp = 2130903050;
+			
+			// aapt resource value: 0x7f03000b
+			public const int Icon = 2130903051;
 			
 			static Mipmap()
 			{

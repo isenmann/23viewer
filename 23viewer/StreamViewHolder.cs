@@ -17,10 +17,12 @@ namespace viewer
         public TextView NumberOfFavourites { get; private set; }
         public ImageView Comment { get; private set; }
         public TextView NumberOfComments { get; private set; }
+        public ImageView Info { get; private set; }
 
         public Action<int> ImageClicked;
         public Action<int> MarkedAsFavClicked;
         public Action<int> CommentsClicked;
+        public Action<int> InfoClicked;
 
         public StreamViewHolder(View itemView) : base(itemView)
         {
@@ -34,10 +36,17 @@ namespace viewer
             NumberOfFavourites = itemView.FindViewById<TextView>(Resource.Id.numberFav);
             Comment = itemView.FindViewById<ImageView>(Resource.Id.commentImageView);
             NumberOfComments = itemView.FindViewById<TextView>(Resource.Id.numberComments);
+            Info = itemView.FindViewById<ImageView>(Resource.Id.infoImageView);
 
             Image.Click += Image_Click;
             MarkedAsFavourite.Click += MarkedAsFavourite_Click;
             Comment.Click += Comment_Click;
+            Info.Click += Info_Click;
+        }
+
+        private void Info_Click(object sender, EventArgs e)
+        {
+            InfoClicked?.Invoke(AdapterPosition);
         }
 
         private void Comment_Click(object sender, EventArgs e)
