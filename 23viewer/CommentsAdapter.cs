@@ -61,7 +61,7 @@ namespace viewer
 
             view.FindViewById<TextView>(Resource.Id.comment).Text = Comments[position].CommentHtml;
 
-            TimeSpan commentTimespan = DateTime.Now - Comments[position].DateCreated;
+            TimeSpan commentTimespan = DateTime.Now - Comments[position].DateCreated.ToLocalTime();
 
             string commentTimeText = string.Empty;
 
