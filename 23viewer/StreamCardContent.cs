@@ -46,6 +46,7 @@ namespace viewer
                 PhotoInfo photoInfo = MainActivity.twentyThree.PhotosGetInfo(photo.PhotoId, photo.Secret);
 
                 photo.DateUploaded = photoInfo.DateUploaded;
+                photo.Views = photoInfo.ViewCount;
 
                 PhotoInformation info = new PhotoInformation() { photo = photo, Owner = contact, IsFavourite = favourite, NumberOfFavourites = 0, NumberOfComments = 0 };
                 Photos.Add(info);

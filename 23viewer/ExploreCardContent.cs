@@ -66,6 +66,7 @@ namespace viewer
                 contact.UserId = photoInfo.OwnerUserId;
 
                 photo.DateUploaded = photoInfo.DateUploaded;
+                photo.Views = photoInfo.ViewCount;
 
                 PhotoInformation info = new PhotoInformation() { photo = photo, Owner = contact, IsFavourite = favourite, NumberOfFavourites = 0, NumberOfComments = 0 };
                 photos.Add(info);

@@ -64,9 +64,11 @@ namespace viewer
             commentsDialog.Show(transaction, "Comments dialog");
         }
 
-        private void InfoClick(object sender, int e)
+        private void InfoClick(object sender, int position)
         {
-            // Open info dialogfragment
+            FragmentTransaction transaction = this.FragmentManager.BeginTransaction();
+            PhotoDataDialogFragment photoDialog = new PhotoDataDialogFragment(StreamContentAdapter.Photos[position].photo);
+            photoDialog.Show(transaction, "Photo dialog");
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
