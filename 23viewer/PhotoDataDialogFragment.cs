@@ -66,7 +66,12 @@ namespace viewer
                 title.Text = photo.Title;
             }
 
-            if(index != -1)
+            if (String.IsNullOrWhiteSpace(title.Text))
+            {
+                title.Text = " - ";
+            }
+
+            if (index != -1)
             {
                 description.Text = photo.Title.Substring(index);
             }
@@ -106,13 +111,18 @@ namespace viewer
 
                 if (String.IsNullOrWhiteSpace(cameraExif.Text))
                 {
-                    view.FindViewById<ImageView>(Resource.Id.cameraIcon).Visibility = ViewStates.Invisible;
+                    cameraExif.Text = " - ";
                 }
             }
 
             foreach (var tag in photo.Tags)
             {
                 photoTags.Text += tag + "   ";
+            }
+
+            if (String.IsNullOrWhiteSpace(photoTags.Text))
+            {
+                photoTags.Text = " - ";
             }
 
             return view;
