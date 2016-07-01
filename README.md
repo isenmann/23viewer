@@ -24,6 +24,13 @@ A few words to the navigation at the top. The tab with the home icon should disp
 
 If these features are implemented, I will start to implement the upload feature. This will include uploading photos from your smartphone directly to 23, no matter if they are in the gallery or directly from your smartphone camera.
 
+## Update (June 30th, 2016)
+
+The new info dialog for some photo details is finished. You can now see the complete title and description, also the count of views and the EXIF data of the photo. Tags are displayed, too. In some later step these tags will be clickable and therfor searchable. In the screenshot you will see the new info button beside the favourite star, which opens the dialog in the second screenshot. 
+
+<img src="https://raw.githubusercontent.com/isenmann/23viewer/master/Screenshots/infoButton.png" width="240">
+<img src="https://raw.githubusercontent.com/isenmann/23viewer/master/Screenshots/photoDetailsDialog.png" width="240">
+
 ## Update (June 26th, 2016)
 
 The implementation of the explore tab has started. Right now it's only possible to see the most recent public uploads to 23. At the moment it looks like the stream, just with other photos, but there will be some changes in the near future, e.g. searching 23 like on the website, browsing tags, see new/other photogroups etc. 
