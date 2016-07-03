@@ -2,7 +2,7 @@
 
 23 viewer should become an Android app for the 23 photo community. 
 
-At the moment the app is a work in progress. You can authorize the app against your 23 account and you will see a list of all your contacts' photos. The image, description, username and the buddy icon should be displayed, that's it at the moment. Nothing more.
+At the moment the app is a work in progress.
 
 I will add new features (better design, full support of all functionality of 23, ...) in the future. As I said this is a work in progress.
 
