@@ -16,4 +16,5 @@
   <string name="delete_as_fav">Photo is no longer marked as favourite.</string>
   <string name="add_comment">Add comment</string>
   <string name="number_of_views">{0} views</string>
+  <string name="number_of_contacts">{0} contacts</string>
 </resources>

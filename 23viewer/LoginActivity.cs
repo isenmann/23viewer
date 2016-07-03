@@ -38,6 +38,7 @@ namespace viewer
                 var apiShare = prefs.GetString("SHARE", null);
                 var frob = prefs.GetString("FROB", null);
                 var apiToken = prefs.GetString("TOKEN", null);
+                var userid = prefs.GetString("USERID", null);
 
                 if (apiKey != null && apiShare != null && frob != null && apiToken == null)
                 {
@@ -47,6 +48,7 @@ namespace viewer
                     {
                         Auth auth = MainActivity.twentyThree.AuthGetToken(frob);
                         apiToken = auth.Token;
+                        userid = auth.User.UserId;
                     }
                     catch (TwentyThreeNet.TwentyThreeApiException)
                     {
@@ -60,6 +62,7 @@ namespace viewer
 
                     var editor = prefs.Edit();
                     editor.PutString("TOKEN", apiToken);
+                    editor.PutString("USERID", userid);
                     editor.Commit();
                 }
 
