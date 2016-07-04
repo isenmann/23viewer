@@ -106,8 +106,11 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="PhotoDataDialogFragment.cs" />
     <Compile Include="PhotoInformation.cs" />
+    <Compile Include="ProfileAlbums.cs" />
+    <Compile Include="ProfileContacts.cs" />
     <Compile Include="ProfileFragment.cs" />
     <Compile Include="ImageFullscreen.cs" />
+    <Compile Include="ProfilePhotos.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SplashActivity.cs" />
@@ -149,6 +152,9 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\PhotoData.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ProfilePhotos.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>

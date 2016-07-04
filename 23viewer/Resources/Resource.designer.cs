@@ -1900,8 +1900,8 @@ namespace viewer
 			// aapt resource value: 0x7f07002a
 			public const int bottom = 2131165226;
 			
-			// aapt resource value: 0x7f07009d
-			public const int buddyImageView = 2131165341;
+			// aapt resource value: 0x7f0700a0
+			public const int buddyImageView = 2131165344;
 			
 			// aapt resource value: 0x7f07006d
 			public const int buddyImageViewComment = 2131165293;
@@ -1948,8 +1948,8 @@ namespace viewer
 			// aapt resource value: 0x7f07006b
 			public const int commentEditText = 2131165291;
 			
-			// aapt resource value: 0x7f0700a0
-			public const int commentImageView = 2131165344;
+			// aapt resource value: 0x7f0700a3
+			public const int commentImageView = 2131165347;
 			
 			// aapt resource value: 0x7f07006f
 			public const int commented = 2131165295;
@@ -1958,7 +1958,7 @@ namespace viewer
 			public const int contentPanel = 2131165258;
 			
 			// aapt resource value: 0x7f070099
-			public const int countContacts = 2131165337;
+			public const int counts = 2131165337;
 			
 			// aapt resource value: 0x7f070050
 			public const int custom = 2131165264;
@@ -2011,8 +2011,8 @@ namespace viewer
 			// aapt resource value: 0x7f070051
 			public const int expanded_menu = 2131165265;
 			
-			// aapt resource value: 0x7f0700a2
-			public const int favouritedImageView = 2131165346;
+			// aapt resource value: 0x7f0700a5
+			public const int favouritedImageView = 2131165349;
 			
 			// aapt resource value: 0x7f070035
 			public const int fill = 2131165237;
@@ -2041,8 +2041,8 @@ namespace viewer
 			// aapt resource value: 0x7f07003f
 			public const int image = 2131165247;
 			
-			// aapt resource value: 0x7f07009c
-			public const int imageView = 2131165340;
+			// aapt resource value: 0x7f07009f
+			public const int imageView = 2131165343;
 			
 			// aapt resource value: 0x7f07007a
 			public const int imageViewFullscreen = 2131165306;
@@ -2050,8 +2050,8 @@ namespace viewer
 			// aapt resource value: 0x7f07008b
 			public const int info = 2131165323;
 			
-			// aapt resource value: 0x7f0700a4
-			public const int infoImageView = 2131165348;
+			// aapt resource value: 0x7f0700a7
+			public const int infoImageView = 2131165351;
 			
 			// aapt resource value: 0x7f070000
 			public const int item_touch_helper_previous_elevation = 2131165184;
@@ -2104,11 +2104,11 @@ namespace viewer
 			// aapt resource value: 0x7f07000c
 			public const int normal = 2131165196;
 			
-			// aapt resource value: 0x7f0700a1
-			public const int numberComments = 2131165345;
+			// aapt resource value: 0x7f0700a4
+			public const int numberComments = 2131165348;
 			
-			// aapt resource value: 0x7f0700a3
-			public const int numberFav = 2131165347;
+			// aapt resource value: 0x7f0700a6
+			public const int numberFav = 2131165350;
 			
 			// aapt resource value: 0x7f070028
 			public const int parallax = 2131165224;
@@ -2149,11 +2149,14 @@ namespace viewer
 			// aapt resource value: 0x7f070054
 			public const int radio = 2131165268;
 			
-			// aapt resource value: 0x7f07009b
-			public const int recyclerView = 2131165339;
+			// aapt resource value: 0x7f07009e
+			public const int recyclerView = 2131165342;
 			
 			// aapt resource value: 0x7f070079
 			public const int recyclerViewExplore = 2131165305;
+			
+			// aapt resource value: 0x7f07009c
+			public const int recyclerViewProfilePhoto = 2131165340;
 			
 			// aapt resource value: 0x7f070030
 			public const int right = 2131165232;
@@ -2260,8 +2263,8 @@ namespace viewer
 			// aapt resource value: 0x7f070065
 			public const int submit_area = 2131165285;
 			
-			// aapt resource value: 0x7f07009a
-			public const int swipeRefreshLayout = 2131165338;
+			// aapt resource value: 0x7f07009d
+			public const int swipeRefreshLayout = 2131165341;
 			
 			// aapt resource value: 0x7f070078
 			public const int swipeRefreshLayoutExplore = 2131165304;
@@ -2271,6 +2274,9 @@ namespace viewer
 			
 			// aapt resource value: 0x7f07000d
 			public const int tabMode = 2131165197;
+			
+			// aapt resource value: 0x7f07009a
+			public const int tabsProfile = 2131165338;
 			
 			// aapt resource value: 0x7f07008a
 			public const int text = 2131165322;
@@ -2305,8 +2311,8 @@ namespace viewer
 			// aapt resource value: 0x7f070009
 			public const int up = 2131165193;
 			
-			// aapt resource value: 0x7f07009f
-			public const int uploaded = 2131165343;
+			// aapt resource value: 0x7f0700a2
+			public const int uploaded = 2131165346;
 			
 			// aapt resource value: 0x7f070014
 			public const int useLogo = 2131165204;
@@ -2317,8 +2323,8 @@ namespace viewer
 			// aapt resource value: 0x7f070097
 			public const int userName = 2131165335;
 			
-			// aapt resource value: 0x7f07009e
-			public const int username = 2131165342;
+			// aapt resource value: 0x7f0700a1
+			public const int username = 2131165345;
 			
 			// aapt resource value: 0x7f07006e
 			public const int usernameComment = 2131165294;
@@ -2328,6 +2334,9 @@ namespace viewer
 			
 			// aapt resource value: 0x7f07007f
 			public const int viewpager = 2131165311;
+			
+			// aapt resource value: 0x7f07009b
+			public const int viewpagerProfile = 2131165339;
 			
 			// aapt resource value: 0x7f070021
 			public const int withText = 2131165217;
@@ -2536,22 +2545,25 @@ namespace viewer
 			public const int Profile = 2130968627;
 			
 			// aapt resource value: 0x7f040034
-			public const int select_dialog_item_material = 2130968628;
+			public const int ProfilePhotos = 2130968628;
 			
 			// aapt resource value: 0x7f040035
-			public const int select_dialog_multichoice_material = 2130968629;
+			public const int select_dialog_item_material = 2130968629;
 			
 			// aapt resource value: 0x7f040036
-			public const int select_dialog_singlechoice_material = 2130968630;
+			public const int select_dialog_multichoice_material = 2130968630;
 			
 			// aapt resource value: 0x7f040037
-			public const int Stream = 2130968631;
+			public const int select_dialog_singlechoice_material = 2130968631;
 			
 			// aapt resource value: 0x7f040038
-			public const int StreamCardView = 2130968632;
+			public const int Stream = 2130968632;
 			
 			// aapt resource value: 0x7f040039
-			public const int support_simple_spinner_dropdown_item = 2130968633;
+			public const int StreamCardView = 2130968633;
+			
+			// aapt resource value: 0x7f04003a
+			public const int support_simple_spinner_dropdown_item = 2130968634;
 			
 			static Layout()
 			{
@@ -2678,6 +2690,9 @@ namespace viewer
 			// aapt resource value: 0x7f0a0023
 			public const int add_comment = 2131361827;
 			
+			// aapt resource value: 0x7f0a0027
+			public const int albums = 2131361831;
+			
 			// aapt resource value: 0x7f0a0016
 			public const int app_name = 2131361814;
 			
@@ -2692,6 +2707,9 @@ namespace viewer
 			
 			// aapt resource value: 0x7f0a0015
 			public const int character_counter_pattern = 2131361813;
+			
+			// aapt resource value: 0x7f0a0028
+			public const int contacts = 2131361832;
 			
 			// aapt resource value: 0x7f0a0019
 			public const int day_ago = 2131361817;
@@ -2717,11 +2735,14 @@ namespace viewer
 			// aapt resource value: 0x7f0a001e
 			public const int minutes_ago = 2131361822;
 			
-			// aapt resource value: 0x7f0a0025
-			public const int number_of_contacts = 2131361829;
-			
 			// aapt resource value: 0x7f0a0024
 			public const int number_of_views = 2131361828;
+			
+			// aapt resource value: 0x7f0a0026
+			public const int photos = 2131361830;
+			
+			// aapt resource value: 0x7f0a0025
+			public const int profileStats = 2131361829;
 			
 			// aapt resource value: 0x7f0a001f
 			public const int seconds_ago = 2131361823;

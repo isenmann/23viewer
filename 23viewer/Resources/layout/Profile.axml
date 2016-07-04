@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:layout_marginLeft="-2dp"
+    android:layout_marginRight="-2dp"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#EFEFEF">
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayoutProfile"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="match_parent">
         <ScrollView
             android:layout_width="fill_parent"
@@ -15,7 +17,7 @@
             android:minWidth="300dp"
             android:minHeight="500dp">
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="10dp"
@@ -50,9 +52,31 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#333333"
-                    android:id="@+id/countContacts"
+                    android:id="@+id/counts"
                     android:gravity="center"
                     android:layout_gravity="center_horizontal" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="#EFEFEF" />
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tabsProfile"
+                    style="@style/MyCustomTabLayout"
+                    android:layout_marginLeft="-2dp"
+                    android:layout_marginRight="-2dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#5C9B4A" />
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewpagerProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_weight="1"
+                    android:background="@android:color/white" />
             </LinearLayout>
         </ScrollView>
     </android.support.v4.widget.SwipeRefreshLayout>
