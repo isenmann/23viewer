@@ -24,6 +24,12 @@ A few words to the navigation at the top. The tab with the home icon should disp
 
 If these features are implemented, I will start to implement the upload feature. This will include uploading photos from your smartphone directly to 23, no matter if they are in the gallery or directly from your smartphone camera.
 
+## Update (February 13th, 2017)
+
+<b>First available alpha release for the public! You can find the release apk on the release page: https://github.com/isenmann/23viewer/releases/ </b>
+
+Make sure that you allow Android to install software from untrusted sources. Then install the apk and authorize it with your 23 account. After that you will see all the images from your contacts which you subscribed at. Also the newest uploaded photos to 23 are shown in its own tab. All stuff I described in the other update messages are available for you, so have fun with it and please give me some feedback on it.
+
 ## Update (June 30th, 2016)
 
 The new info dialog for some photo details is finished. You can now see the complete title and description, also the count of views and the EXIF data of the photo. Tags are displayed, too. In some later step these tags will be clickable and therfor searchable. In the screenshot you will see the new info button beside the favourite star, which opens the dialog in the second screenshot. 
